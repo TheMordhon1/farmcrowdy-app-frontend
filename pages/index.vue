@@ -17,7 +17,7 @@
           >
         </div>
       </div>
-      <div class="grid grid-cols-4 mt-3 gap-y-10 gap-x-6">
+      <div class="grid grid-cols-3 mt-3 gap-y-10 gap-x-6">
         <div
           v-for="campaign in projek.data"
           :key="campaign.id"
@@ -35,11 +35,52 @@
               <h4 class="text-md font-medium text-gray-900 mt-5">
                 {{ campaign.name }}
               </h4>
-              <p class="text-sm font-light text-gray-900 h-12">
+              <p class="text-sm font-light text-gray-900 mb-4">
                 {{ campaign.short_description }}
               </p>
-              <div class="relative pt-4 progress-bar">
-                <div
+              <!-- Progrees Bar -->
+              <v-tooltip bottom v-if="campaign.goal_amount-campaign.current_amount == 0" >
+                <template class="pt-4 progress-bar" v-slot:activator="{ on, attrs }">
+                  <div
+                    class="
+                      overflow-hidden
+                      h-2
+                      mb-4
+                      text-xs
+                      flex
+                      rounded
+                      bg-gray-200
+                      h-3
+                      rounded-lg
+                    "
+                    dark
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    <div
+                      :style="
+                        'width: ' +
+                        (campaign.current_amount / campaign.goal_amount) * 100 +
+                        '%'
+                      "
+                      class="
+                        shadow-none
+                        flex flex-col
+                        text-center
+                        whitespace-nowrap
+                        text-white
+                        justify-center
+                        bg-green-500
+                      "
+                    ></div>
+                  </div>
+                </template>
+                  <span>{{(campaign.current_amount / campaign.goal_amount) * 100 +
+                        '%'}}</span>
+              </v-tooltip>
+              <v-tooltip bottom v-else>
+                <template class="pt-4 progress-bar"  v-slot:activator="{ on, attrs }">
+                <span
                   class="
                     overflow-hidden
                     h-2
@@ -51,8 +92,11 @@
                     h-3
                     rounded-lg
                   "
-                >
-                  <div
+                    dark
+                    v-bind="attrs"
+                    v-on="on"
+                 >
+                 <div
                     :style="
                       'width: ' +
                       (campaign.current_amount / campaign.goal_amount) * 100 +
@@ -66,20 +110,54 @@
                       text-white
                       justify-center
                       bg-purple-progress
-                      progress-striped
                     "
                   ></div>
+                 
+                </span>
+                </template>
+                <span>{{(campaign.current_amount / campaign.goal_amount) * 100 +
+                        '%'}}</span>
+              </v-tooltip>
+              
+
+              <!-- Saldo -->
+              <div class="flex progress-info justify-between align-center">
+                <div v-if="campaign.goal_amount-campaign.current_amount == 0">
+                  <p class="ml-auto font-semibold text-green-500 text-md">Terdanai Penuh</p>
                 </div>
-              </div>
-              <div class="flex progress-info">
+                <div v-else>
+                  Tersisa <br><p alt="tersisa" class="ml-auto font-semibold">Rp{{ new Intl.NumberFormat().format(campaign.goal_amount-campaign.current_amount) }}</p>
+                </div>
                 <div>
-                  {{ parseFloat(campaign.current_amount / campaign.goal_amount).toFixed(2) * 100 }}%
-                </div>
-                <div class="ml-auto font-semibold">
-                  Rp {{ new Intl.NumberFormat().format(campaign.goal_amount) }}
+                  Total <br><p alt="tersisa" class="ml-auto font-semibold">Rp{{ new Intl.NumberFormat().format(campaign.goal_amount) }}</p>
                 </div>
               </div>
             </div>
+            <button
+              @click="
+                $router.push({
+                  name: 'projek-id',
+                  params: { id: campaign.id },
+                })
+              "
+              class="
+                mt-5
+                button-cta
+                block
+                w-full
+                bg-green-button
+                text-white
+                font-semibold
+                px-6
+                py-2
+                text-lg
+                
+              "
+
+              v-if="campaign.goal_amount-campaign.current_amount == 0"
+            >
+              Lihat Projek
+            </button>
             <button
               @click="
                 $router.push({
@@ -101,6 +179,8 @@
                 text-lg
                 
               "
+
+              v-else
             >
               Bantu Projek Ini
             </button>
@@ -123,6 +203,7 @@ import Story from '~/components/Story.vue';
 
 Vue.use(VueFilterDateFormat);
 export default {
+ 
   components: { Story },
   async asyncData({ $axios }) {
     const projek = await $axios.$get('/api/v1/projek')
@@ -130,3 +211,7 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+
+</style>

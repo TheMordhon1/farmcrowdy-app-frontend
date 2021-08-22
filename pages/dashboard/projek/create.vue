@@ -88,28 +88,52 @@
                     <label
                       class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                     >
-                      Deskripsi Projek
+                      Deskripsi Komoditas
                     </label>
-                    <textarea rows="14"
+                    <textarea rows="10"
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="text"
-                      placeholder="e.g :
-                      Mengenal Vanili
-
-                        Vanili merupakan tanaman yang buahnya bernilai ekonomi tinggi dan dapat digunakan sebagai bahan campuran makanan dan minuman. Vanili banyak digunakan sebagai bahan pembantu industri makanan dan pewangi obat-obatan, (flavour and fragrance ingredients). Sehingga, kebutuhannya cukup tinggi di pasaran.
-
-                        Prospek Budidaya
-
-                        Vanili merupakan salah satu komoditas ekspor rempah yang penting bagi peningkatan devisa negara. Permintaannya yang tinggi dan harga jual yang sangat tinggi di pasar lokal maupun internasional, juga salah satu faktor yang membuat vanili  menjadi menarik untuk dibudidayakan.
-
-                        
-                        Risiko Budidaya
-
-                        Dalam budidaya vanili, kondisi lingkungan sangat menentukan sehingga dibutuhkan perlakuan yang khusus serta tepat agar resiko dapat ditekan. Daerah yang sesuai untuk budidaya vanili harus berada pada ketinggian 1-700 mdpl, bulan kering 2-4 bulan, temperatur 23-26 C, dan kelembaban 50-75%. Hama utama Vanili adalah bekicot dan ulat. Sedangkan untuk penyakit seringkali dijumpai Fusarium sp. dan Trichoderma sp. Baik untuk hama dan penyakit, pencegahan dan penanggulangan dini selalu dilakukan secara berkala.
-
-                        Kelompok Tani Kami
-                        Kelompok Tani Kami adalah kelompok tani yang sudah berdiri sejak tahun 2015. Kelompok tani ini memiliki lahan dengan luas total 2 hektar berlokasi di Jawa Tengah. Selama ini, mereka melakukan pembudidayaan vanili dengan modal sendiri. Namun sekarang bersama TaniFund, mereka berharap usaha pembudidayaan vanili mereka bisa berkembang dan dapat meningkatkan kesejahteraan masyarakat setempat dengan menyediakan peluang pekerjaan. Didasari dengan pertimbangan rekam jejak yang baik serta pengalaman budidaya kelompok tani ini, maka TaniFund tertarik untuk menjalin kerjasama dengan mereka."
-                      v-model="campaign.description"
+                      placeholder=""
+                      v-model="campaign.description_komoditas"
+                    ></textarea>
+                  </div>
+                  <div class="w-full px-3">
+                    <label
+                      class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    >
+                      Deskripsi Prospek
+                    </label>
+                    <textarea rows="10"
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      type="text"
+                      placeholder=""
+                      v-model="campaign.description_prospek"
+                    ></textarea>
+                  </div>
+                  <div class="w-full px-3">
+                    <label
+                      class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    >
+                      Deskripsi Risiko
+                    </label>
+                    <textarea rows="10"
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      type="text"
+                      placeholder=""
+                      v-model="campaign.description_risiko"
+                    ></textarea>
+                  </div>
+                  <div class="w-full px-3">
+                    <label
+                      class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    >
+                      Deskripsi Kelompok Tani
+                    </label>
+                    <textarea rows="10"
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      type="text"
+                      placeholder=""
+                      v-model="campaign.description_kelompok_tani"
                     ></textarea>
                   </div>
                 </div>
@@ -132,7 +156,10 @@ export default {
         campaign: {
           name:'',
           short_description:'',
-          description:'',
+          description_komoditas:'',
+          description_prospek:'',
+          description_risiko:'',
+          description_kelompok_tani:'',
           goal_amount:'',
           perks:'',
         }

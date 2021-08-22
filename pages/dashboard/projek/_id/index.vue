@@ -16,7 +16,18 @@
           <div class="w-3/4 mr-6">
             <h3 class="text-2xl text-gray-900 mb-4 capitalize">detail projek</h3>
           </div>
-          <div class="w-1/4 text-right">
+          <div class="w-1/4 text-right" v-if="campaign.data.goal_amount-campaign.data.current_amount == 0">
+            <nuxt-link
+              :to="{
+                name: 'dashboard-projek-id-edit',
+                params: {id: campaign.data.id},
+              }"
+              class="hidden bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
+            >
+              Edit
+            </nuxt-link>
+          </div>
+          <div class="w-1/4 text-right" v-else>
             <nuxt-link
               :to="{
                 name: 'dashboard-projek-id-edit',
@@ -43,11 +54,36 @@
                 <p class="text-gray-700 text-base">
                   {{campaign.data.short_description}}
                 </p>
+                <!-- Deskripsi Komoditas -->
                 <p class="font-bold flex items-center mt-3 capitalize text-md mb-2">
-                  deskripsi projek
+                  deskripsi komoditas
                 </p>
-                <p class="text-gray-700 text-base whitespace-pre-line">
-                  {{campaign.data.description}}
+                <p class="text-gray-700 text-base">
+                  {{campaign.data.description_komoditas}}
+                </p>
+
+                <!-- Deskripsi Prospek -->
+                <p class="font-bold flex items-center mt-3 capitalize text-md mb-2">
+                  deskripsi prospek
+                </p>
+                <p class="text-gray-700 text-base">
+                  {{campaign.data.description_prospek}}
+                </p>
+
+                <!-- Deskripsi Risiko -->
+                <p class="font-bold flex items-center mt-3 capitalize text-md mb-2">
+                  deskripsi risiko
+                </p>
+                <p class="text-gray-700 text-base">
+                  {{campaign.data.description_risiko}}
+                </p>
+
+                <!-- Deskripsi Kelompok Tani -->
+                <p class="font-bold flex items-center mt-3 capitalize text-md mb-2">
+                  deskripsi Kelompok Tani
+                </p>
+                <p class="text-gray-700 text-base">
+                  {{campaign.data.description_kelompok_tani}}
                 </p>
               
                 <p class="font-bold flex items-center mt-4 capitalize text-md mb-2">
@@ -84,7 +120,8 @@
             v-for="image in campaign.data.images"
             :key="image.image_url"
           >
-            <figure class="item-thumbnail">
+            <figure class="item-thumbnail-remove" @click="remove(data.images)">
+              
               <img :src="$axios.defaults.baseURL + '/' + image.image_url" 
               alt="" class="rounded w-full" />
             </figure>
@@ -111,6 +148,10 @@
                 {{ new Intl.NumberFormat().format(transaction.amount) }}
                 <br>{{  new Date(transaction.created_at) | dateFormat('DD/MM/YYYY, hh:mm a') }}
                 </p>
+                <div>
+                  <span v-if="transaction.status == 'pending'" class="text-orange-button capitalize"> {{ transaction.status }} </span>
+                  <span v-else="transaction.status == 'paid'" class="text-green-button capitalize"> {{ transaction.status }} </span>
+                </div>
               </div>
             </div>
           </div>
@@ -178,6 +219,10 @@ export default {
       } catch (err) {
         console.log(err)
       }
+    },
+    remove (data) {
+        const index = this.selectedFiles.indexOf(data.images)
+        if (index >= 0) this.selectedFiles.splice(index, 1)
     },
   
   },

@@ -35,7 +35,15 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    // Simple usage
+    '@nuxtjs/vuetify',
+
   ],
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
+  },
+  
   /*
    ** Nuxt.js modules
    */
@@ -79,4 +87,7 @@ export default {
     },
   },
   build: {},
+
+  
+
 }

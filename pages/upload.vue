@@ -86,7 +86,7 @@ export default {
         })
         console.log(response)
 
-        this.$router.push({ path: '/register-success' })
+        this.$router.push({ path: '/daftar-berhasil' })
       } catch (err) {
         console.log(err)
       }

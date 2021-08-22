@@ -8,59 +8,59 @@
         <div class="w-auto md:w-2/4 lg:w-2/3 flex justify-center items-center">
           <div class="w-full lg:w-1/2 px-10 lg:px-0">
             <h2 class="font-normal mb-6 text-3xl text-white">
-              Buat Akun
+              <i ></i> Buat Akun
             </h2>
             <div class="mb-4">
               <div class="mb-4">
-                <label class="font-normal text-lg text-white block mb-3"
-                  >Nama Lengkap</label
-                >
-                <input
-                  type="text"
-                  class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
-                  placeholder="ex: Ardi Saputra"
+                <v-text-field
                   v-model="register.name"
-                />
+                  label="Nama Lengkap"
+                  persistent-hint
+                  outlined
+                  maxlenght="20"
+                  counter
+                ></v-text-field>
               </div>
             </div>
             <div class="mb-4">
               <div class="mb-4">
-                <label class="font-normal text-lg text-white block mb-3"
-                  >Pekerjaan</label
-                >
-                <input
-                  type="text"
-                  class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
-                  placeholder="ex: Pengusaha"
+                <v-text-field
                   v-model="register.occupation"
-                />
+                  label="Pekerjaan"
+                  hint="ex:Pengusaha/Petani"
+                   persistent-hint
+                    outlined
+                ></v-text-field>
               </div>
             </div>
             <div class="mb-4">
               <div class="mb-4">
-                <label class="font-normal text-lg text-white block mb-3"
-                  >Alamat Email</label
-                >
-                <input
-                  type="email"
-                  class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
-                  placeholder="ex: ardisapt@gmail.com"
+                <v-text-field
                   v-model="register.email"
-                />
+                  label="Email"
+                  :rules="[rules.required, rules.email]"
+                  placeholder="ex: ardisapt@gmail.com"
+                  persistent-hint
+                  outlined
+                >
+                </v-text-field>
               </div>
             </div>
             <div class="mb-6">
-              <div class="mb-4">
-                <label class="font-normal text-lg text-white block mb-3"
-                  >Password</label
-                >
-                <input
-                  type="password"
-                  class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
-                  placeholder="Masukan Password Anda"
-                  v-model="register.password"
-                  @keyup.enter="userRegister"
-                />
+              <div class="mb-4">   
+                <v-text-field
+                    @keyup.enter="userRegister"
+                    v-model="register.password"
+                    :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                    :rules="[rules.required, rules.min , rules.inputPass]"
+                    :type="show3 ? 'text' : 'password'"
+                    label="Password"
+                   
+                    @click:append="show3 = !show3"
+                    persistent-hint
+                    outlined
+                  >
+                </v-text-field>
               </div>
             </div>
             <div class="mb-4">
@@ -94,19 +94,31 @@ export default {
           email:'',
           occupation:'',
           password:'',
-        }
+        },
+        show3: false,
+        rules: {
+          required: value => !!value || '',
+          counter: value => value.length <= 20 || 'Max 20 Karakter',
+          inputPass:   v => v.length < 8  || 'Password, OK !',
+          min: v => v.length >= 8 ||  'Min 8 Karakter',
+          email: value => {
+            const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            return pattern.test(value) || 'Masukan email yang benar'
+          },
+        },
       }
     },
     methods: {
       async userRegister() {
       try {
         let response = await this.$axios.post('/api/v1/users', this.register)
-        console.log(response.data.data.token)
+        let isEmailEvailable = await this.$axios.post('/api/v1/email_checkers', this.register)
+        console.log(response.data.data.token, isEmailEvailable)
         this.$auth
           .setUserToken(response.data.data.token)
           .then(() => this.$router.push({ path: '/upload' }))
-      } catch (err) {
-        console.log(err)
+      } catch (error) {
+        console.log(error)
       }
     },
     },

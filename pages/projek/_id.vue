@@ -45,7 +45,7 @@
             class="bg-white w-full p-5 border border-gray-400 rounded-20 sticky"
             style="top: 15px"
           >
-            <h3>Pembuat projek:</h3>
+            <h3 class="font-semibold ">Pembuat projek :</h3>
 
             <div class="flex mt-3">
               <div class="w-1/4">
@@ -69,132 +69,246 @@
                 </div>
               </div>
             </div>
-
-            <h4 class="mt-5 font-semibold">Yang akan anda dapatkan:</h4>
+            <h3 class="flex mt-5 font-semibold gap-2">Status projek : 
+              <p v-if="campaign.data.goal_amount-campaign.data.current_amount == 0" class="text-green-500 ">Terdanai</p>
+              <p v-else class="text-yellow-500">Berjalan</p>
+            </h3>
+            <h4 class="mt-5 font-semibold">Yang akan didapatkan :</h4>
             <ul class="list-check mt-3">
               <li v-for="perk in campaign.data.perks" :key="perk">
                 {{ perk }}
               </li>
             </ul>
-            <template v-if="this.$store.state.auth.loggedIn">
-              <input
-                type="number"
-                class="
-                  border border-gray-500
-                  block
-                  w-full
-                  px-6
-                  py-3
-                  mt-4
-                  rounded-full
-                  text-gray-800
-                  transition
-                  duration-300
-                  ease-in-out
-                  focus:outline-none
-                  focus:shadow-outline
-                "
-                placeholder="Jumlah Dalam Rp"
-                v-model.number="transactions.amount"
-                @keyup.enter="fund"
-              />
-              <button
-                @click="fund"
-                class="
-                  mt-3
-                  button-cta
-                  block
-                  w-full
-                  bg-orange-button
-                  hover:bg-green-button
-                  text-white
-                  font-medium
-                  px-6
-                  py-3
-                  text-md
-                  rounded-full
-                "
-              >
-                Bantu Sekarang
-              </button>
-            </template>
-            <template v-else>
-              <button
-                @click="$router.push({ path: '/login' })"
-                class="
-                  mt-3
-                  button-cta
-                  block
-                  w-full
-                  bg-orange-button
-                  hover:bg-green-button
-                  text-white
-                  font-medium
-                  px-6
-                  py-3
-                  text-md
-                  rounded-full
-                "
-              >
-                Bantu Sekarang
-              </button>
-            </template>
+            <div v-if="campaign.data.goal_amount-campaign.data.current_amount == 0">
+              <div class="hidden">
+                <template v-if="this.$store.state.auth.loggedIn">
+                  <input
+                  class="
+                      border border-gray-500
+                      block
+                      w-full
+                      px-6
+                      py-3
+                      mt-4
+                      rounded-full
+                      text-gray-800
+                      transition
+                      duration-300
+                      ease-in-out
+                      focus:outline-none
+                      focus:shadow-outline
+                    "
+                    type="number"
+                    placeholder="Jumlah Dalam Rp"
+                    v-model.number="transactions.amount"
+                    @keyup.enter="fund"
+                  />
+                  <button
+                    @click="fund"
+                    class="
+                      mt-3
+                      button-cta
+                      block
+                      w-full
+                      bg-orange-button
+                      hover:bg-green-button
+                      text-white
+                      font-medium
+                      px-6
+                      py-3
+                      text-md
+                      rounded-full
+                    "
+                  >
+                    Bantu Sekarang
+                  </button>
+                </template>
+                <template v-else>
+                  <button
+                    @click="$router.push({ path: '/login' })"
+                    class="
+                      mt-3
+                      button-cta
+                      block
+                      w-full
+                      bg-orange-button
+                      hover:bg-green-button
+                      text-white
+                      font-medium
+                      px-6
+                      py-3
+                      text-md
+                      rounded-full
+                    "
+                  >
+                    Bantu Sekarang
+                  </button>
+                </template>
+              </div>
+            </div>
+            <div v-else>
+              <div class="block">
+                <template v-if="this.$store.state.auth.loggedIn">
+                  
+                 <input
+                  class="
+                      input-rp 
+                    "
+                    type="number"
+                    placeholder="Jumlah Dalam Rp"
+                    v-model.number="transactions.amount"
+                    @keyup.enter="fund"
+                  />
+                   
+                  
+                  <button
+                    @click="fund"
+                    class="
+                      mt-3
+                      button-cta
+                      block
+                      w-full
+                      bg-orange-button
+                      hover:bg-green-button
+                      text-white
+                      font-medium
+                      px-6
+                      py-3
+                      text-md
+                      rounded-full
+                    "
+                  >
+                    Bantu Sekarang
+                  </button>
+                </template>
+                <template v-else>
+                  <button
+                    @click="$router.push({ path: '/login' })"
+                    class="
+                      mt-3
+                      button-cta
+                      block
+                      w-full
+                      bg-orange-button
+                      hover:bg-green-button
+                      text-white
+                      font-medium
+                      px-6
+                      py-3
+                      text-md
+                      rounded-full
+                    "
+                  >
+                    Bantu Sekarang
+                  </button>
+                </template>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="container mx-auto pt-8">
-      <div class="flex justify-between items-center">
-        <div class="w-full md:w-3/4 mr-6">
-          <h2 class="text-4xl text-gray-900 mb-2 font-medium">
-            {{ campaign.data.name }}
-          </h2>
-          <p class="font-light text-xl mb-5">
-            {{ campaign.data.short_description }}
-          </p>
+    <template>
+      <div class=" container mx-auto pt-8">
+        <div class="flex justify-between items-center">
+          <div class="w-full md:w-3/4 mr-6">
+            <h2 class="text-4xl text-gray-900 mb-2 font-medium">
+              {{ campaign.data.name }}
+            </h2>
+            <p class="font-light text-xl mb-5">
+              {{ campaign.data.short_description }}
+            </p>
 
-          <div class="relative progress-bar">
-            <div
-              class="overflow-hidden mb-4 text-xs flex rounded-full bg-gray-200 h-6"
-            >
+            <div class="relative progress-bar" v-if="campaign.data.goal_amount-campaign.data.current_amount == 0">
               <div
-                :style="
-                  'width: ' +
-                  (campaign.current_amount / campaign.goal_amount) * 100 +
-                  '%'
-                "
-                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-progress progress-striped"
-              ></div>
+                class="overflow-hidden mb-4 text-xs flex rounded-full bg-gray-200 h-6"
+              >
+                <div
+                  :style="
+                      'width: ' +
+                      (campaign.data.current_amount / campaign.data.goal_amount) * 100 +
+                      '%'
+                    "
+                   class="
+                      shadow-none
+                      flex flex-col
+                      text-center
+                      whitespace-nowrap
+                      text-white
+                      justify-center
+                      bg-green-500
+                      "
+                ></div>
+              </div>
             </div>
-          </div>
-          <div class="flex progress-info mb-6">
-            <div class="text-2xl">
-              {{
-                parseFloat(campaign.data.current_amount / campaign.data.goal_amount).toFixed(2) *
-                100
-              }}%
-              
+            <div class="relative progress-bar" v-else>
+              <div
+                class="overflow-hidden mb-4 text-xs flex rounded-full bg-gray-200 h-6"
+              >
+                <div
+                  :style="
+                      'width: ' +
+                      (campaign.data.current_amount / campaign.data.goal_amount) * 100 +
+                      '%'
+                    "
+                   class="
+                      shadow-none
+                      flex flex-col
+                      text-center
+                      whitespace-nowrap
+                      text-white
+                      justify-center
+                      bg-purple-progress
+                      "
+                ></div>
+              </div>
             </div>
-            <div class="ml-auto font-semibold text-2xl"> <span class="text-sm font-normal mr-2">sampai</span>
-              Rp {{ new Intl.NumberFormat().format(campaign.data.goal_amount) }}
+            <div class="flex progress-info justify-between align-center mb-10">
+                  <div v-if="campaign.data.goal_amount-campaign.data.current_amount == 0">
+                    <p class="ml-auto font-semibold text-xl text-green-500" >Terdanai Penuh</p>
+                  </div>
+                  <div v-else>
+                    Tersisa <br><p class="ml-auto font-semibold text-xl">Rp{{ new Intl.NumberFormat().format(campaign.data.goal_amount-campaign.data.current_amount) }}</p>
+                  </div>
+                  <div>
+                    Total <br><p class="ml-auto font-semibold text-xl">Rp{{ new Intl.NumberFormat().format(campaign.data.goal_amount) }}</p>
+                  </div>
             </div>
-          </div>
 
-          <p class="font-light text-xl mb-5 whitespace-pre-line">
-            {{ campaign.data.description }}
-          </p>
+            <span class="capitalize font-semibold text-2xl mb-3">tentang komoditas</span> 
+            <p class="font-light text-xl mb-5 mb-10">
+              {{ campaign.data.description_komoditas }}
+            </p>
+
+            <span class="capitalize font-semibold text-2xl mb-3">Prospek</span> 
+            <p class="font-light text-xl mb-5 mb-10">
+              {{ campaign.data.description_prospek }}
+            </p>
+
+            <span class="capitalize font-semibold text-2xl mb-3">Risiko</span> 
+            <p class="font-light text-xl mb-5 mb-10">
+              {{ campaign.data.description_risiko }}
+            </p>
+
+            <span class="capitalize font-semibold text-2xl mb-3">kelompok tani</span> 
+            <p class="font-light text-xl mb-5 mb-10">
+              {{ campaign.data.description_kelompok_tani }}
+            </p>
+          </div>
+          <div class="w-1/4 hidden md:block"></div>
         </div>
-        <div class="w-1/4 hidden md:block"></div>
       </div>
-    </section>
-    <div class="cta-clip -mt-20"></div>
+    </template>
+    
     <CallToAction />
     <Footer />
   </div>
 </template>
 
 <script>
+
 export default {
+  
   async asyncData({ $axios, params }) {
     const campaign = await $axios.$get('/api/v1/projek/' + params.id)
     return { campaign }
@@ -206,6 +320,11 @@ export default {
         amount: 0,
         campaign_id: Number.parseInt(this.$route.params.id),
       },
+      show3: false,
+        rules: {
+          required: value => !!value || '',
+          counter: value => value.length <= 20 || 'Max 20 Karakter',
+        },
     }
   },
   methods: {
@@ -233,5 +352,16 @@ export default {
 </script>
 
 <style lang="scss">
+.input-rp {
+  border: 1px solid #333;
+  border-radius: 30px;
+  background: #f1f1f1;
+  padding: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  color: #555;
+  transition:.5s ease-in-out;
+ 
+}
 
 </style>

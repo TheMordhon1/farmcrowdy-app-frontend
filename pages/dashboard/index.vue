@@ -11,7 +11,7 @@
             <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
             <ul class="flex mt-2">
               <li class="mr-6">
-                <a class="text-gray-800 font-bold" href="#"> Projek Anda </a>
+                <p class="text-gray-800 font-bold"> Projek Anda </p>
               </li>
               <li class="mr-6">
                 <nuxt-link
@@ -43,16 +43,16 @@
             <nuxt-link
             :to="'/dashboard/projek/' + campaign.id"
               class=" w-full border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-8 flex flex-col justify-between leading-normal"
-            >
+             >
               <div class="mb-8">
                 <div class="text-gray-900 font-bold text-xl mb-1">
                   {{campaign.name}}
                 </div>
-                <p class="text-sm text-gray-600 flex items-center mb-2">
-                  {{ parseFloat(campaign.current_amount / campaign.goal_amount).toFixed(2) * 100 }}% /
+                <p class="text-sm text-gray-600 flex items-center mb-2 text-green-500" v-if="campaign.goal_amount-campaign.current_amount == 0"> Terdanai Penuh
+                </p>
+                <p class="text-sm text-gray-600 flex items-center mb-2" v-else>
+                  Rp.{{ new Intl.NumberFormat().format(campaign.goal_amount-campaign.current_amount)}} dari
                   Rp.  {{ new Intl.NumberFormat().format(campaign.goal_amount) }}
-                &middot;
-                terakhir di ubah pada {{  new Date(campaign.updated_at) | dateFormat('DD/MM/YYYY, hh:mm a') }}
                 
                 </p>
                 <p class="text-gray-700 text-base">
@@ -67,6 +67,7 @@
                   Detail
                 </nuxt-link>
               </div>
+               <p  class="text-sm text-gray-600 flex items-center ml-auto">terakhir di ubah pada {{  new Date(campaign.updated_at) | dateFormat('DD/MM/YYYY, hh:mm a') }}</p>
             </nuxt-link>
           </div>
         </div>

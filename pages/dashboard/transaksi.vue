@@ -19,12 +19,11 @@
               </nuxt-link>
             </li>
             <li class="mr-6">
-              <nuxt-link
+              <p
                 class="text-gray-800 font-bold"
-                to="/dashboard/transactions"
               >
                 Riwayat Transaksi
-              </nuxt-link>
+              </p>
             </li>
           </ul>
         </div>

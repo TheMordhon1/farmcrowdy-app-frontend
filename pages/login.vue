@@ -10,31 +10,37 @@
             </h2>
             <div class="mb-6">
           <div class="mb-4">
-            <label class="font-normal text-lg text-white block mb-3"
-              >Alamat Email</label
-            >
-            <input
-              type="email"
-              v-model="login.email"
-              class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
-              placeholder="Masukan alamat email"
-            />
-          </div>
+              <div class="mb-4">
+                <v-text-field
+                  v-model="login.email"
+                  label="Email"
+                  :rules="[rules.required, rules.email]"
+                  placeholder="ex: ardisapt@gmail.com"
+                  persistent-hint
+                  outlined
+                >
+                </v-text-field>
+              </div>
+            </div>
+            <div class="mb-6">
+              <div class="mb-4">   
+                <v-text-field
+                    @keyup.enter="userLogin"
+                    v-model="login.password"
+                    :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                    :rules="[rules.required]"
+                    :type="show3 ? 'text' : 'password'"
+                    label="Password"
+                   
+                    @click:append="show3 = !show3"
+                    persistent-hint
+                    outlined
+                  >
+                </v-text-field>
+              </div>
+            </div>
         </div>
-        <div class="mb-6">
-          <div class="mb-4">
-            <label class="font-normal text-lg text-white block mb-3"
-              >Password</label
-            >
-            <input
-              @keyup.enter="userLogin"
-              type="password"
-              v-model="login.password"
-              class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
-              placeholder="Password"
-            />
-          </div>
-        </div>
+            
         <div class="mb-6">
           <div class="mb-4">
             <button
@@ -67,6 +73,14 @@ export default {
         email: '',
         password: '',
       },
+       show3: false,
+        rules: {
+          required: value => !!value || '',
+          email: value => {
+            const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            return pattern.test(value) || 'Masukan email yang benar'
+          },
+        },
     }
   },
   methods: {

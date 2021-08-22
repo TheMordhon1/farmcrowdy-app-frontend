@@ -144,6 +144,19 @@ footer {
 .item-thumbnail:hover img {
   opacity: 0.3;
 }
+.item-thumbnail-remove:hover {
+  background-color: #ff2e2e;
+  border-radius: 20px;
+}
+.item-thumbnail-remove:hover:after {
+  position: absolute;
+  top: 38%;
+  left: 41%;
+  content: url("/icon-thumbnail-remove.svg");
+}
+.item-thumbnail-remove:hover img {
+  opacity: 0.3;
+}
 
 
 .auth-page {
@@ -152,3 +165,4 @@ footer {
   background-position: top right;
   background-repeat: no-repeat;
 }
+
