@@ -14,7 +14,7 @@
       </div>
       <div class="flex justify-between items-center">
         <div class="w-3/4 mr-6">
-          <h3 class="text-2xl text-gray-900 mb-4 capitalize">detail projek</h3>
+          <h3 class="text-2xl text-gray-900 mb-4 capitalize">detail proyek</h3>
         </div>
         <div
           class="w-1/4 text-right"
@@ -150,7 +150,7 @@
                   mb-2
                 "
               >
-                total biaya projek
+                total biaya proyek
               </p>
               <p class="text-4xl text-gray-700 text-base">
                 Rp.{{
@@ -163,7 +163,7 @@
       </div>
       <div class="flex justify-between items-center">
         <div class="w-3/4 mr-6">
-          <h3 class="text-2xl text-gray-900 mb-4 mt-5">Gambar Projek</h3>
+          <h3 class="text-2xl text-gray-900 mb-4 mt-5">Gambar Proyek</h3>
         </div>
         <div class="w-2/4 text-right">
           <input

@@ -1,20 +1,19 @@
 <template>
   <div class="landing-page">
     <section class="dashboard-header pt-5">
-        <div class="container mx-auto relative">
-          <Navbar/>
-        </div>
-      </section>
+      <div class="container mx-auto relative">
+        <Navbar />
+      </div>
+    </section>
     <section class="container mx-auto pt-24" id="project">
       <div class="flex justify-between items-center">
         <div class="w-auto">
           <h2 class="text-xl text-gray-900 mb-8">
-            Projek Terbaru yang
+            Proyek Terbaru yang
             <br />
             Memerlukan Bantuan
           </h2>
         </div>
-      
       </div>
       <div class="grid grid-cols-3 mt-3 gap-y-10 gap-x-6">
         <div
@@ -24,10 +23,12 @@
         >
           <div class="item flex flex-col">
             <figure class="item-image relative">
-              <img width="200" height="150"
+              <img
+                width="200"
+                height="150"
                 :src="$axios.defaults.baseURL + '/' + campaign.image_url"
                 alt=""
-                class=" object-contain w-full h-full"
+                class="object-contain w-full h-full"
               />
             </figure>
             <div class="item-meta">
@@ -38,7 +39,10 @@
                 {{ campaign.short_description }}
               </p>
               <!-- Progrees Bar -->
-              <div class="pt-4 progress-bar" v-if="campaign.goal_amount-campaign.current_amount == 0">
+              <div
+                class="pt-4 progress-bar"
+                v-if="campaign.goal_amount - campaign.current_amount == 0"
+              >
                 <div
                   class="
                     overflow-hidden
@@ -105,14 +109,26 @@
 
               <!-- Saldo -->
               <div class="flex progress-info justify-between align-center">
-                <div v-if="campaign.goal_amount-campaign.current_amount == 0">
-                  <p class="ml-auto font-semibold text-green-500 text-md">Terdanai Penuh</p>
+                <div v-if="campaign.goal_amount - campaign.current_amount == 0">
+                  <p class="ml-auto font-semibold text-green-500 text-md">
+                    Terdanai Penuh
+                  </p>
                 </div>
                 <div v-else>
-                  Tersisa <br><p alt="tersisa" class="ml-auto font-semibold">Rp{{ new Intl.NumberFormat().format(campaign.goal_amount-campaign.current_amount) }}</p>
+                  Tersisa <br />
+                  <p alt="tersisa" class="ml-auto font-semibold">
+                    Rp{{
+                      new Intl.NumberFormat().format(
+                        campaign.goal_amount - campaign.current_amount
+                      )
+                    }}
+                  </p>
                 </div>
                 <div>
-                  Total <br><p alt="tersisa" class="ml-auto font-semibold">Rp{{ new Intl.NumberFormat().format(campaign.goal_amount) }}</p>
+                  Total <br />
+                  <p alt="tersisa" class="ml-auto font-semibold">
+                    Rp{{ new Intl.NumberFormat().format(campaign.goal_amount) }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -135,12 +151,10 @@
                 px-6
                 py-2
                 text-lg
-                
               "
-
-              v-if="campaign.goal_amount-campaign.current_amount == 0"
+              v-if="campaign.goal_amount - campaign.current_amount == 0"
             >
-              Lihat Projek
+              Lihat Proyek
             </button>
             <button
               @click="
@@ -161,14 +175,19 @@
                 px-6
                 py-2
                 text-lg
-                
               "
-
               v-else
             >
-              Bantu Projek Ini
+              Bantu Proyek Ini
             </button>
-            <p class="mt-2 text-sm"><span class="font-light text-gray-900 text-sm">Di update pada </span>{{  new Date(campaign.updated_at) | dateFormat('DD-MM-YYYY, hh:mm a') }}</p>
+            <p class="mt-2 text-sm">
+              <span class="font-light text-gray-900 text-sm"
+                >Di update pada </span
+              >{{
+                new Date(campaign.updated_at)
+                  | dateFormat("DD-MM-YYYY, hh:mm a")
+              }}
+            </p>
           </div>
         </div>
       </div>
@@ -180,22 +199,16 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import VueFilterDateFormat from 'vue-filter-date-format';
-import Story from '~/components/Story.vue';
+import Vue from "vue";
+import VueFilterDateFormat from "vue-filter-date-format";
+import Story from "~/components/Story.vue";
 
 Vue.use(VueFilterDateFormat);
 export default {
- 
   components: { Story },
   async asyncData({ $axios }) {
-    const projek = await $axios.$get('/api/v1/projek')
-    return { projek }
+    const projek = await $axios.$get("/api/v1/projek");
+    return { projek };
   },
-
-  
-}
-
-
-
+};
 </script>

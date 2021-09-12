@@ -1,44 +1,42 @@
 <template lang="">
   <header class="flex items-center">
     <div style="height: 54px" class="pr-5">
-      <v-avatar
-          color="orange"
-          size="62"
-          class="mr-4"
-          >
+      <v-avatar color="orange" size="62" class="mr-4">
         <img src="/logo@2x.png" alt="logo" class="h-full" />
       </v-avatar>
     </div>
     <ul class="flex items-center">
       <li>
-        <nuxt-link class="text-white  hover:text-yellow-500 text-lg px-4 py-3" to="/"
+        <nuxt-link
+          class="text-white hover:text-yellow-500 text-lg px-4 py-3"
+          to="/"
           >Home</nuxt-link
         >
       </li>
       <li>
         <nuxt-link
-          class="text-white  hover:text-yellow-500 text-lg px-4 py-3"
+          class="text-white hover:text-yellow-500 text-lg px-4 py-3"
           to="/#project"
-          >Projek</nuxt-link
+          >Proyek</nuxt-link
         >
       </li>
       <li>
         <nuxt-link
-          class="text-white  hover:text-yellow-500 text-lg px-4 py-3"
+          class="text-white hover:text-yellow-500 text-lg px-4 py-3"
           to="/#fitur"
           >Fitur</nuxt-link
         >
       </li>
       <li>
         <nuxt-link
-          class="text-white  hover:text-yellow-500 text-lg px-4 py-3"
+          class="text-white hover:text-yellow-500 text-lg px-4 py-3"
           to="/#story"
           >Kisah Sukses</nuxt-link
         >
       </li>
     </ul>
     <ul
-      class=" flex justify-between ml-auto"
+      class="flex justify-between ml-auto"
       v-if="!this.$store.state.auth.loggedIn"
     >
       <li>
@@ -86,7 +84,7 @@
       </li>
     </ul>
     <div class="ml-auto" v-else>
-      <div class="dropdown inline-block relative z-10 ">
+      <div class="dropdown inline-block relative z-10">
         <button
           class="
             bg-white
@@ -99,20 +97,16 @@
             items-center
           "
         >
-        <v-avatar
-          color="orange"
-          size="48"
-          class="mr-4"
-          >
-          <img
-            v-if="$store.state.auth.user.image_url"
-            :src="
-              $axios.defaults.baseURL + '/' + $store.state.auth.user.image_url
-            "
-            alt=""
-          />
-        </v-avatar>
-          <span class="mr-1">
+          <v-avatar color="orange" size="48" class="mr-4">
+            <img
+              v-if="$store.state.auth.user.image_url"
+              :src="
+                $axios.defaults.baseURL + '/' + $store.state.auth.user.image_url
+              "
+              alt=""
+            />
+          </v-avatar>
+          <span class="mr-1 capitalize">
             {{ this.$store.state.auth.user.name }}
           </span>
           <!-- <img
@@ -147,8 +141,7 @@
             <nuxt-link
               class="
                 bg-white
-                hover:bg-gray-100 
-                hover:text-yellow-500
+                hover:bg-gray-100 hover:text-yellow-500
                 py-2
                 px-4
                 block
@@ -158,7 +151,7 @@
               >Dashboard</nuxt-link
             >
           </li>
-          
+
           <li class="">
             <a
               class="
@@ -193,8 +186,8 @@
 export default {
   methods: {
     async logout() {
-      await this.$auth.logout()
+      await this.$auth.logout();
     },
   },
-}
+};
 </script>

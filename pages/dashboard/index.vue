@@ -11,7 +11,7 @@
           <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
           <ul class="flex mt-2">
             <li class="mr-6">
-              <p class="text-gray-800 font-bold">Projek Anda</p>
+              <p class="text-gray-800 font-bold">Proyek Anda</p>
             </li>
             <li class="mr-6">
               <nuxt-link
@@ -38,7 +38,7 @@
               items-center
             "
           >
-            + Buat Projek</nuxt-link
+            + Buat Proyek</nuxt-link
           >
         </div>
       </div>

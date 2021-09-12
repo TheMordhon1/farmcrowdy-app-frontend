@@ -15,7 +15,7 @@
                 class="text-gray-500 hover:text-gray-800"
                 to="/dashboard"
               >
-                Projek Anda
+                Proyek Anda
               </nuxt-link>
             </li>
             <li class="mr-6">

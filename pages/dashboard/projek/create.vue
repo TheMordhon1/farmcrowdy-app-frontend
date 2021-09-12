@@ -13,28 +13,23 @@
         </div>
       </div>
       <div class="flex justify-between items-center">
-        <div class="w-3/4 mr-6">
-          <h3 class="text-2xl text-gray-900 mb-4">Buat projek baru</h3>
-        </div>
-        <div class="w-1/4 text-right">
-          <button
-            @click="save"
-            class="
-              bg-green-button
-              hover:bg-green-button
-              text-white
-              font-bold
-              px-4
-              py-1
-              rounded
-              inline-flex
-              items-center
-            "
-          >
-            Simpan
-          </button>
+        <div class="w-4/4 mr-6">
+          <h3 class="text-2xl text-gray-900 mb-4">Buat proyek baru</h3>
         </div>
       </div>
+      <v-alert
+        class="info"
+        border="top"
+        colored-border
+        type="info"
+        elevation="2"
+      >
+        Berikan info yang akurat dan detail, pastikan
+        <b>total biaya proyek</b> dan
+        <b>yang anda tawarkan kepada funder</b>
+        merupakan data yang pasti dikarenakan anda perlu
+        <i>menghubungi admin</i> untuk mengubahnya.
+      </v-alert>
       <div class="block mb-2">
         <div class="w-full lg:max-w-full lg:flex mb-4">
           <div
@@ -62,7 +57,7 @@
                       mb-2
                     "
                   >
-                    Nama Projek
+                    Nama Proyek
                   </label>
                   <input
                     class="
@@ -94,7 +89,7 @@
                       mb-2
                     "
                   >
-                    Total Biaya Projek
+                    Total Biaya Proyek
                   </label>
                   <input
                     class="
@@ -320,6 +315,24 @@
                 </div>
               </div>
             </form>
+            <div class="block w-full text-right">
+              <button
+                @click="save"
+                class="
+                  bg-green-button
+                  hover:bg-green-button
+                  text-white
+                  font-bold
+                  px-4
+                  py-1
+                  rounded
+                  inline-flex
+                  items-center
+                "
+              >
+                Simpan
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -364,4 +377,24 @@ export default {
   },
 };
 </script>
-<style lang=""></style>
+<style lang="scss">
+.v-alert {
+  margin: 2rem 0;
+  position: relative;
+  background-color: rgba(17, 132, 255, 0.145) !important;
+
+  .v-alert__border--top {
+    top: 0;
+    background-color: rgba(17, 132, 255, 0.576) !important;
+  }
+
+  .v-alert__wrapper {
+    display: flex;
+    gap: 1rem;
+
+    .v-icon {
+      color: rgba(17, 132, 255, 0.576);
+    }
+  }
+}
+</style>

@@ -49,7 +49,7 @@
             class="bg-white w-full p-5 border border-gray-400 rounded-20 sticky"
             style="top: 15px"
           >
-            <h3 class="font-semibold">Pembuat projek :</h3>
+            <h3 class="font-semibold">Pembuat proyek :</h3>
 
             <div class="flex mt-3">
               <div class="w-1/4">
@@ -75,7 +75,7 @@
               </div>
             </div>
             <h3 class="flex mt-5 font-semibold gap-2">
-              Status projek :
+              Status proyek :
               <p
                 v-if="
                   campaign.data.goal_amount - campaign.data.current_amount == 0

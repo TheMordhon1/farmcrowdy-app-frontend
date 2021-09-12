@@ -12,7 +12,7 @@
       </div>
       <div class="w-full mr-6">
         <h3 class="text-2xl text-gray-900 mb-4 capitalize">
-          edit projek "{{ campaign.data.name }}"
+          edit proyek "{{ campaign.data.name }}"
         </h3>
       </div>
       <!-- Button Action -->
@@ -82,7 +82,7 @@
                       mb-2
                     "
                   >
-                    Nama Projek
+                    Nama Proyek
                   </label>
                   <input
                     class="
@@ -114,7 +114,7 @@
                       mb-2
                     "
                   >
-                    Total Biaya Projek
+                    Total Biaya Proyek
                   </label>
                   <input
                     class="
@@ -134,7 +134,7 @@
                     v-model.number="campaign.data.goal_amount"
                     readonly
                   />
-                  <small>*Fitur edit Not-actived, silahkan hubungi admin</small>
+                  <small>*silahkan hubungi admin jika ingin mengubahnya</small>
                 </div>
                 <div class="w-full px-3">
                   <label
@@ -201,7 +201,7 @@
                     v-model="campaign.data.perks"
                     readonly
                   />
-                  <small>*Fitur edit Not-actived, silahkan hubungi admin</small>
+                  <small>*silahkan hubungi admin jika ingin mengubahnya</small>
                 </div>
                 <div class="w-full px-3 mb-3">
                   <label
