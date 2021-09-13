@@ -127,36 +127,92 @@
               <p class="text-gray-700 text-base">
                 {{ campaign.data.description_kelompok_tani }}
               </p>
+              <div
+                class="relative"
+                  v-if="campaign.data.goal_amount - campaign.data.current_amount == 0"
+              >
+                <p
+                  class="
+                    font-bold
+                    flex
+                    items-center
+                    mt-4
+                    capitalize
+                    text-md
+                    mb-2
+                  "
+                >
+                  yang ditawarkan kepada funder
+                </p>
+                <ul class="list-disc ml-5">
+                  <li v-for="perk in campaign.data.perks" :key="perk">
+                    {{ perk }}
+                  </li>
+                </ul>
+                <p
+                  class="
+                    font-bold
+                    flex
+                    items-center
+                    mb-1
+                    mt-4
+                    capitalize
+                    text-md
+                    mb-2
+                  "
+                >
+                  total biaya proyek
+                </p>
+                <p class="text-4xl text-gray-700 text-base">
+                  Rp.{{
+                    new Intl.NumberFormat().format(campaign.data.goal_amount)
+                  }}
+                </p>
 
-              <p
-                class="font-bold flex items-center mt-4 capitalize text-md mb-2"
-              >
-                yang ditawarkan kepada funder
-              </p>
-              <ul class="list-disc ml-5">
-                <li v-for="perk in campaign.data.perks" :key="perk">
-                  {{ perk }}
-                </li>
-              </ul>
-              <p
-                class="
-                  font-bold
-                  flex
-                  items-center
-                  mb-1
-                  mt-4
-                  capitalize
-                  text-md
-                  mb-2
-                "
-              >
-                total biaya proyek
-              </p>
-              <p class="text-4xl text-gray-700 text-base">
-                Rp.{{
-                  new Intl.NumberFormat().format(campaign.data.goal_amount)
-                }}
-              </p>
+                <img
+                  class="absolute top-0 right-0 w-1/2 z-0"
+                  src="/terdanai.svg"
+                />
+              </div>
+              <div class="relative" v-else>
+                <p
+                  class="
+                    font-bold
+                    flex
+                    items-center
+                    mt-4
+                    capitalize
+                    text-md
+                    mb-2
+                  "
+                >
+                  yang ditawarkan kepada funder
+                </p>
+                <ul class="list-disc ml-5">
+                  <li v-for="perk in campaign.data.perks" :key="perk">
+                    {{ perk }}
+                  </li>
+                </ul>
+                <p
+                  class="
+                    font-bold
+                    flex
+                    items-center
+                    mb-1
+                    mt-4
+                    capitalize
+                    text-md
+                    mb-2
+                  "
+                >
+                  total biaya proyek
+                </p>
+                <p class="text-4xl text-gray-700 text-base">
+                  Rp.{{
+                    new Intl.NumberFormat().format(campaign.data.goal_amount)
+                  }}
+                </p>
+              </div>
             </div>
           </div>
         </div>

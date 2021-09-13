@@ -65,7 +65,7 @@
                 <div class="font-semibold text-xl text-gray-800">
                   {{ campaign.data.user.name }}
                 </div>
-                <div class="text-sm text-gray-800">
+                <div class="text-sm text-gray-800 capitalize">
                   ({{ campaign.data.user.occupation }})
                 </div>
 
@@ -194,7 +194,8 @@
                   </button>
                 </template>
                 <template v-else>
-                  <button
+                  <a
+                    target="_blank"
                     @click="$router.push({ path: '/login' })"
                     class="
                       mt-3
@@ -212,7 +213,7 @@
                     "
                   >
                     Bantu Sekarang
-                  </button>
+                  </a>
                 </template>
               </div>
             </div>
@@ -220,7 +221,7 @@
         </div>
       </div>
     </section>
-    <template>
+    <template v>
       <div class="container mx-auto pt-8">
         <div class="flex justify-between items-center">
           <div class="w-full md:w-3/4 mr-6">
@@ -374,11 +375,6 @@ export default {
       transactions: {
         amount: 0,
         campaign_id: Number.parseInt(this.$route.params.id),
-      },
-      show3: false,
-      rules: {
-        required: (value) => !!value || "",
-        counter: (value) => value.length <= 20 || "Max 20 Karakter",
       },
     };
   },

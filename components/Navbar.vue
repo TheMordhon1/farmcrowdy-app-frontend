@@ -151,6 +151,20 @@
               >Dashboard</nuxt-link
             >
           </li>
+          <li class="">
+            <nuxt-link
+              class="
+                bg-white
+                hover:bg-gray-100 hover:text-yellow-500
+                py-2
+                px-4
+                block
+                whitespace-no-wrap
+              "
+              to="/ubah-foto"
+              >Ubah Foto</nuxt-link
+            >
+          </li>
 
           <li class="">
             <a
