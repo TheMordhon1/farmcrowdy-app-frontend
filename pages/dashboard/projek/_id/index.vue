@@ -129,7 +129,9 @@
               </p>
               <div
                 class="relative"
-                  v-if="campaign.data.goal_amount - campaign.data.current_amount == 0"
+                v-if="
+                  campaign.data.goal_amount - campaign.data.current_amount == 0
+                "
               >
                 <p
                   class="
@@ -170,7 +172,7 @@
                 </p>
 
                 <img
-                  class="absolute top-0 right-0 w-1/2 z-0"
+                  class="absolute top-0 right-0 w-1/3 z-0"
                   src="/terdanai.svg"
                 />
               </div>

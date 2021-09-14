@@ -88,16 +88,16 @@
                     <div  v-if="transaction.status == 'pending'" class="flex">
                       <span class="text-orange-button capitalize w-3/4"> {{ transaction.status }} </span>
                       <a target="_blank" :href="transaction.payment_url" class="
-              bg-orange-button
-              hover:bg-green-button
-              text-white
-              font-bold
-              py-4
-              px-4
-              rounded
-              inline-flex
-              items-center
-            ">Lanjutkan Pembayaran</a>
+                        bg-orange-button
+                        hover:bg-green-button
+                        text-white
+                        font-bold
+                        py-4
+                        px-4
+                        rounded
+                        inline-flex
+                        items-center
+                       ">Lanjutkan Pembayaran</a>
                     </div>
                     <div  v-else="transaction.status == 'paid'">
                       <span class="text-green-button capitalize"> {{ transaction.status }} </span>

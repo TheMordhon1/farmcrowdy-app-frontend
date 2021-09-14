@@ -168,7 +168,8 @@
                   <input
                     class="input-rp"
                     type="number"
-                    placeholder="Jumlah Dalam Rp"
+                    required
+                    placeholder="Nominal Dalam Rp"
                     v-model.number="transactions.amount"
                     @keyup.enter="fund"
                   />
