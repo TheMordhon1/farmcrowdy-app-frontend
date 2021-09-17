@@ -16,7 +16,7 @@
       <li>
         <nuxt-link
           class="text-white hover:text-yellow-500 text-lg px-4 py-3"
-          to="/#project"
+          to="/#proyek"
           >Proyek</nuxt-link
         >
       </li>

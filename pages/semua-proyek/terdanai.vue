@@ -202,7 +202,7 @@
             <button
               @click="
                 $router.push({
-                  name: 'projek-id',
+                  name: '/projek-id',
                   params: { id: campaign.id },
                 })
               "

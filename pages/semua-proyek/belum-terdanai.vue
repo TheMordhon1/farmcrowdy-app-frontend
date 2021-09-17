@@ -40,10 +40,10 @@
       <div class="grid grid-cols-3 mt-3 gap-y-10 gap-x-6">
         <div
           v-for="campaign in projek.data"
-          v-if="campaign.goal_amount - campaign.current_amount !== 0"
           :key="campaign.id"
           class="card-project border rounded-6 p-4"
           :title="campaign.name"
+          v-if="campaign.goal_amount - campaign.current_amount !== 0"
         >
           <div class="item flex flex-col">
             <figure class="item-image relative">

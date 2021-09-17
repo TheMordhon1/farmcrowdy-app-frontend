@@ -170,8 +170,17 @@
                     type="number"
                     required
                     placeholder="Nominal Dalam Rp"
+                    v-model="number"
                     v-model.number="transactions.amount"
                     @keyup.enter="fund"
+                    step="100000"
+                    value="100000"
+                    :max="
+                      campaign.data.goal_amount - campaign.data.current_amount
+                    "
+                    min="
+                      1000000
+                    "
                   />
 
                   <button
@@ -189,6 +198,7 @@
                       py-3
                       text-md
                       rounded-full
+                      text-center
                     "
                   >
                     Bantu Sekarang
@@ -211,9 +221,11 @@
                       py-3
                       text-md
                       rounded-full
+                      text-center
+                      cursor-pointer
                     "
                   >
-                    Bantu Sekarang
+                    Login Dulu
                   </a>
                 </template>
               </div>
@@ -370,15 +382,23 @@ export default {
     const campaign = await $axios.$get("/api/v1/projek/" + params.id);
     return { campaign };
   },
-  data() {
+  data: function () {
     return {
       default_image: "",
       transactions: {
-        amount: 0,
+        amount: 100000,
         campaign_id: Number.parseInt(this.$route.params.id),
       },
+      number: "",
     };
   },
+
+  watch: {
+    number() {
+      this.number = this.number.replace(/[^0-9]/g, "");
+    },
+  },
+
   methods: {
     async fund() {
       try {

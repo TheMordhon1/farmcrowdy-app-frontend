@@ -2,7 +2,7 @@
   <div class="landing-page">
     <Hero />
     <Fitur />
-    <section class="container mx-auto pt-24" id="project">
+    <section class="container mx-auto pt-24" id="proyek">
       <div class="flex justify-between items-center">
         <div class="w-auto">
           <h2 class="text-xl text-gray-900 mb-8">
