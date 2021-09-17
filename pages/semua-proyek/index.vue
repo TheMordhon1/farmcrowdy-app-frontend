@@ -1,7 +1,10 @@
 <template>
   <div class="landing-page">
-    <Hero />
-    <Fitur />
+    <section class="dashboard-header pt-5">
+      <div class="container mx-auto relative">
+        <Navbar />
+      </div>
+    </section>
     <section class="container mx-auto pt-24" id="project">
       <div class="flex justify-between items-center">
         <div class="w-auto">
@@ -11,17 +14,32 @@
             Memerlukan Bantuan
           </h2>
         </div>
-        <div class="w-auto mt-5">
-          <nuxt-link
-            class="text-gray-900 hover:underline text-md font-medium"
-            to="/semua-proyek"
-            >Lihat Semua</nuxt-link
-          >
-        </div>
       </div>
+      <ul class="flex mt-2">
+        <li class="mr-6">
+          <p class="font-bold">Semua Proyek</p>
+        </li>
+        <li class="mr-6">
+          <nuxt-link
+            class="text-gray-500 hover:text-gray-800"
+            to="/semua-proyek/terdanai"
+          >
+            Terdanai
+          </nuxt-link>
+        </li>
+        <li class="mr-6">
+          <nuxt-link
+            class="text-gray-500 hover:text-gray-800"
+            to="/semua-proyek/belum-terdanai"
+          >
+            Belum Terdanai
+          </nuxt-link>
+        </li>
+      </ul>
+      <hr class="mt-2 mb-5" />
       <div class="grid grid-cols-3 mt-3 gap-y-10 gap-x-6">
         <div
-          v-for="campaign in projek.data.slice(0, 3)"
+          v-for="campaign in projek.data"
           :key="campaign.id"
           class="card-project border rounded-6 p-4"
           :title="campaign.name"
@@ -64,95 +82,73 @@
                 {{ campaign.short_description.substring(0, 90) + "..." }}
               </p>
               <!-- Progrees Bar -->
-              <v-tooltip
-                bottom
+              <div
+                class="pt-4 progress-bar"
                 v-if="campaign.goal_amount - campaign.current_amount == 0"
               >
-                <template
-                  class="pt-4 progress-bar"
-                  v-slot:activator="{ on, attrs }"
+                <div
+                  class="
+                    overflow-hidden
+                    h-2
+                    mb-4
+                    text-xs
+                    flex
+                    rounded
+                    bg-gray-200
+                    h-3
+                    rounded-lg
+                  "
                 >
                   <div
-                    class="
-                      overflow-hidden
-                      h-2
-                      mb-4
-                      text-xs
-                      flex
-                      rounded
-                      bg-gray-200
-                      h-3
-                      rounded-lg
+                    :style="
+                      'width: ' +
+                      (campaign.current_amount / campaign.goal_amount) * 100 +
+                      '%'
                     "
-                    dark
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    <div
-                      :style="
-                        'width: ' +
-                        (campaign.current_amount / campaign.goal_amount) * 100 +
-                        '%'
-                      "
-                      class="
-                        shadow-none
-                        flex flex-col
-                        text-center
-                        whitespace-nowrap
-                        text-white
-                        justify-center
-                        bg-green-500
-                      "
-                    ></div>
-                  </div>
-                </template>
-                <span>{{
-                  (campaign.current_amount / campaign.goal_amount) * 100 + "%"
-                }}</span>
-              </v-tooltip>
-              <v-tooltip bottom v-else>
-                <template
-                  class="pt-4 progress-bar"
-                  v-slot:activator="{ on, attrs }"
+                    class="
+                      shadow-none
+                      flex flex-col
+                      text-center
+                      whitespace-nowrap
+                      text-white
+                      justify-center
+                      bg-green-500
+                    "
+                  ></div>
+                </div>
+              </div>
+              <div class="pt-4 progress-bar" v-else>
+                <div
+                  class="
+                    overflow-hidden
+                    h-2
+                    mb-4
+                    text-xs
+                    flex
+                    rounded
+                    bg-gray-200
+                    h-3
+                    rounded-lg
+                  "
                 >
-                  <span
-                    class="
-                      overflow-hidden
-                      h-2
-                      mb-4
-                      text-xs
-                      flex
-                      rounded
-                      bg-gray-200
-                      h-3
-                      rounded-lg
+                  <div
+                    :style="
+                      'width: ' +
+                      (campaign.current_amount / campaign.goal_amount) * 100 +
+                      '%'
                     "
-                    dark
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    <div
-                      :style="
-                        'width: ' +
-                        (campaign.current_amount / campaign.goal_amount) * 100 +
-                        '%'
-                      "
-                      class="
-                        shadow-none
-                        flex flex-col
-                        text-center
-                        whitespace-nowrap
-                        text-white
-                        justify-center
-                        bg-purple-progress
-                      "
-                    ></div>
-                  </span>
-                </template>
-                <span>{{
-                  (campaign.current_amount / campaign.goal_amount) * 100 + "%"
-                }}</span>
-              </v-tooltip>
+                    class="
+                      shadow-none
+                      flex flex-col
+                      text-center
+                      whitespace-nowrap
+                      text-white
+                      justify-center
+                      bg-purple-progress
+                    "
+                  ></div>
+                </div>
+              </div>
 
               <!-- Saldo -->
               <div class="flex progress-info justify-between align-center">
@@ -238,7 +234,6 @@
         </div>
       </div>
     </section>
-    <Story />
     <div class="cta-clip -mt-20"></div>
     <CallToAction />
     <Footer />
@@ -259,5 +254,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss"></style>

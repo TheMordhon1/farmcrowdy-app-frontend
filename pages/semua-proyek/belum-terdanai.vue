@@ -15,11 +15,35 @@
           </h2>
         </div>
       </div>
+      <ul class="flex mt-2">
+        <li class="mr-6">
+          <nuxt-link
+            class="text-gray-500 hover:text-gray-800"
+            to="/semua-proyek"
+          >
+            Semua Proyek
+          </nuxt-link>
+        </li>
+        <li class="mr-6">
+          <nuxt-link
+            class="text-gray-500 hover:text-gray-800"
+            to="/semua-proyek/terdanai"
+          >
+            Terdanai
+          </nuxt-link>
+        </li>
+        <li class="mr-6">
+          <p class="font-bold">Belum Terdanai</p>
+        </li>
+      </ul>
+      <hr class="mt-2 mb-5" />
       <div class="grid grid-cols-3 mt-3 gap-y-10 gap-x-6">
         <div
           v-for="campaign in projek.data"
+          v-if="campaign.goal_amount - campaign.current_amount !== 0"
           :key="campaign.id"
           class="card-project border rounded-6 p-4"
+          :title="campaign.name"
         >
           <div class="item flex flex-col">
             <figure class="item-image relative">
@@ -32,11 +56,31 @@
               />
             </figure>
             <div class="item-meta">
-              <h4 class="text-md font-medium text-gray-900 mt-5">
+              <h3
+                class="text-lg font-medium text-gray-900 mt-5"
+                v-if="campaign.name.length < 33"
+                :title="campaign.name"
+              >
                 {{ campaign.name }}
-              </h4>
-              <p class="text-sm font-light text-gray-900 mb-4">
+              </h3>
+              <h3
+                class="text-lg font-medium text-gray-900 mt-5"
+                v-if="campaign.name.length > 35"
+                :title="campaign.name"
+              >
+                {{ campaign.name.substring(0, 35) + "..." }}
+              </h3>
+              <p
+                class="text-sm font-light text-gray-900 mb-4"
+                v-if="campaign.short_description.length < 90"
+              >
                 {{ campaign.short_description }}
+              </p>
+              <p
+                class="text-sm font-light text-gray-900 mb-4"
+                v-if="campaign.short_description.length > 90"
+              >
+                {{ campaign.short_description.substring(0, 90) + "..." }}
               </p>
               <!-- Progrees Bar -->
               <div
@@ -144,8 +188,7 @@
                 button-cta
                 block
                 w-full
-                bg-orange-button
-                hover:bg-green-button
+                bg-green-button
                 text-white
                 font-semibold
                 px-6
