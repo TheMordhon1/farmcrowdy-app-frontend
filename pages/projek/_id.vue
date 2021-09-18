@@ -7,7 +7,7 @@
     </section>
     <section class="container project-container mx-auto -mt-56">
       <div class="flex mt-3">
-        <div class="w-3/4 mr-6">
+        <div style="width: 72%" class="mr-6">
           <div class="bg-white p-3 mb-3 border border-gray-400 rounded-20">
             <figure class="item-image">
               <img
@@ -44,7 +44,7 @@
             </div>
           </div>
         </div>
-        <div class="w-1/4">
+        <div style="width: 28%">
           <div
             class="bg-white w-full p-5 border border-gray-400 rounded-20 sticky"
             style="top: 15px"
@@ -52,13 +52,13 @@
             <h3 class="font-semibold">Pembuat proyek :</h3>
 
             <div class="flex mt-3">
-              <div class="w-1/4">
+              <div>
                 <img
                   :src="
                     $axios.defaults.baseURL + '/' + campaign.data.user.image_url
                   "
                   alt=""
-                  class="w-full inline-block rounded-full h-16"
+                  class="w-16 inline-block rounded-full h-16"
                 />
               </div>
               <div class="w-3/4 ml-5 mt-1">
@@ -74,6 +74,8 @@
                 </div>
               </div>
             </div>
+
+            <!-- Status -->
             <h3 class="flex mt-5 font-semibold gap-2">
               Status proyek :
               <p
@@ -86,12 +88,41 @@
               </p>
               <p v-else class="text-yellow-500">Berjalan</p>
             </h3>
+
+            <!-- Perks -->
             <h4 class="mt-5 font-semibold">Yang akan didapatkan :</h4>
             <ul class="list-check mt-3">
               <li v-for="perk in campaign.data.perks" :key="perk">
                 {{ perk }}
               </li>
             </ul>
+
+            <!-- Min Pembayaran -->
+            <div class="flex mt-5 justify-between">
+              <div>
+                <h3 class="font-regular text-sm">Min.Pembiayaan</h3>
+                <p class="font-semibold">
+                  Rp
+                  {{
+                    new Intl.NumberFormat().format(campaign.data.min_pembayaran)
+                  }}
+                </p>
+              </div>
+
+              <div>
+                <h3 class="font-regular text-sm">Maks.Pembiayaan</h3>
+                <p class="font-semibold">
+                  Rp
+                  {{
+                    new Intl.NumberFormat().format(
+                      campaign.data.goal_amount - campaign.data.current_amount
+                    )
+                  }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Input Nominal -->
             <div
               v-if="
                 campaign.data.goal_amount - campaign.data.current_amount == 0
@@ -167,14 +198,12 @@
                 <template v-if="this.$store.state.auth.loggedIn">
                   <input
                     class="input-rp"
-                    type="number"
                     required
+                    type="number"
                     placeholder="Nominal Dalam Rp"
-                    v-model="number"
                     v-model.number="transactions.amount"
                     @keyup.enter="fund"
-                    step="100000"
-                    value="100000"
+                    :step="campaign.data.min_pembayaran"
                     :max="
                       campaign.data.goal_amount - campaign.data.current_amount
                     "
@@ -386,7 +415,7 @@ export default {
     return {
       default_image: "",
       transactions: {
-        amount: 100000,
+        amount: "",
         campaign_id: Number.parseInt(this.$route.params.id),
       },
       number: "",

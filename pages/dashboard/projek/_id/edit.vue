@@ -103,7 +103,7 @@
                     v-model="campaign.data.name"
                   />
                 </div>
-                <div class="w-full md:w-1/2 px-3">
+                <div class="w-full mb-4 md:w-1/2 px-3">
                   <label
                     class="
                       block
@@ -136,7 +136,8 @@
                   />
                   <small>*silahkan hubungi admin jika ingin mengubahnya</small>
                 </div>
-                <div class="w-full px-3">
+
+                <div class="w-full mb-4 px-3">
                   <label
                     class="
                       block
@@ -170,7 +171,42 @@
                     v-model="campaign.data.short_description"
                   />
                 </div>
-                <div class="w-full px-3 mb-3">
+
+                <div class="w-full mb-4 md:w-1/2 px-3">
+                  <label
+                    class="
+                      block
+                      uppercase
+                      tracking-wide
+                      text-gray-700 text-xs
+                      font-bold
+                      mb-2
+                    "
+                  >
+                    Minimal Pembiayaan
+                  </label>
+                  <input
+                    class="
+                      appearance-none
+                      block
+                      w-full
+                      text-gray-700
+                      border border-gray-200
+                      rounded
+                      py-3
+                      px-4
+                      leading-tight
+                      focus:outline-none
+                    "
+                    type="number"
+                    placeholder="ex: 100000"
+                    v-model.number="campaign.data.min_pembayaran"
+                    readonly
+                  />
+                  <small>*silahkan hubungi admin jika ingin mengubahnya</small>
+                </div>
+
+                <div class="w-full mb-4 px-3 mb-3">
                   <label
                     class="
                       block
@@ -203,7 +239,8 @@
                   />
                   <small>*silahkan hubungi admin jika ingin mengubahnya</small>
                 </div>
-                <div class="w-full px-3 mb-3">
+
+                <div class="w-full mb-4 px-3 mb-3">
                   <label
                     class="
                       block
@@ -236,7 +273,8 @@
                     v-model="campaign.data.description_komoditas"
                   ></textarea>
                 </div>
-                <div class="w-full px-3 mb-3">
+
+                <div class="w-full mb-4 px-3 mb-3">
                   <label
                     class="
                       block
@@ -269,7 +307,8 @@
                     v-model="campaign.data.description_prospek"
                   ></textarea>
                 </div>
-                <div class="w-full px-3 mb-3">
+
+                <div class="w-full mb-4 px-3 mb-3">
                   <label
                     class="
                       block
@@ -302,7 +341,8 @@
                     v-model="campaign.data.description_risiko"
                   ></textarea>
                 </div>
-                <div class="w-full px-3 mb-3">
+
+                <div class="w-full mb-4 px-3 mb-3">
                   <label
                     class="
                       block

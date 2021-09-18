@@ -151,6 +151,29 @@
                     {{ perk }}
                   </li>
                 </ul>
+
+                <!-- Minimal Pembiayaan -->
+                <p
+                  class="
+                    font-bold
+                    flex
+                    items-center
+                    mb-1
+                    mt-4
+                    capitalize
+                    text-md
+                    mb-2
+                  "
+                >
+                  Minimal Pembiayaan
+                </p>
+                <p class="text-4xl text-gray-700 text-base">
+                  Rp.{{
+                    new Intl.NumberFormat().format(campaign.data.min_pembayaran)
+                  }}
+                </p>
+
+                <!-- Total Pembiayaan -->
                 <p
                   class="
                     font-bold
@@ -195,30 +218,65 @@
                     {{ perk }}
                   </li>
                 </ul>
-                <p
-                  class="
-                    font-bold
-                    flex
-                    items-center
-                    mb-1
-                    mt-4
-                    capitalize
-                    text-md
-                    mb-2
-                  "
-                >
-                  total biaya proyek
-                </p>
-                <p class="text-4xl text-gray-700 text-base">
-                  Rp.{{
-                    new Intl.NumberFormat().format(campaign.data.goal_amount)
-                  }}
-                </p>
+
+                <div class="flex justify-between">
+                  <!-- Minimal Pembiayaan -->
+                  <div>
+                    <p
+                      class="
+                        font-bold
+                        flex
+                        items-center
+                        mb-1
+                        mt-4
+                        capitalize
+                        text-md
+                        mb-2
+                      "
+                    >
+                      Minimal Pembiayaan
+                    </p>
+                    <p class="text-4xl text-gray-700 text-base">
+                      Rp.{{
+                        new Intl.NumberFormat().format(
+                          campaign.data.min_pembayaran
+                        )
+                      }}
+                    </p>
+                  </div>
+
+                  <div>
+                    <!-- Total -->
+                    <p
+                      class="
+                        font-bold
+                        flex
+                        items-center
+                        mb-1
+                        mt-4
+                        capitalize
+                        text-md
+                        mb-2
+                      "
+                    >
+                      total biaya proyek
+                    </p>
+                    <p class="text-4xl text-gray-700 text-base">
+                      Rp.{{
+                        new Intl.NumberFormat().format(
+                          campaign.data.goal_amount
+                        )
+                      }}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Gambar Proyek -->
       <div class="flex justify-between items-center">
         <div class="w-3/4 mr-6">
           <h3 class="text-2xl text-gray-900 mb-4 mt-5">Gambar Proyek</h3>

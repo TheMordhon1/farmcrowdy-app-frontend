@@ -144,6 +144,40 @@
                     v-model="campaign.short_description"
                   />
                 </div>
+
+                <div class="w-full px-3">
+                  <label
+                    class="
+                      block
+                      uppercase
+                      tracking-wide
+                      text-gray-700 text-xs
+                      font-bold
+                      mb-2
+                    "
+                  >
+                    Minimal Pembiayaan
+                  </label>
+                  <input
+                    class="
+                      appearance-none
+                      block
+                      w-full
+                      bg-gray-200
+                      text-gray-700
+                      border border-gray-200
+                      rounded
+                      py-3
+                      px-4
+                      leading-tight
+                      focus:outline-none focus:bg-white focus:border-gray-500
+                    "
+                    type="number"
+                    placeholder="ex: 100000"
+                    v-model.number="campaign.min_pembayaran"
+                  />
+                </div>
+
                 <div class="w-full px-3">
                   <label
                     class="
@@ -177,6 +211,7 @@
                     v-model="campaign.perks"
                   />
                 </div>
+
                 <div class="w-full px-3">
                   <label
                     class="
