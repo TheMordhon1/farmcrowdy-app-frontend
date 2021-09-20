@@ -86,7 +86,26 @@
               >
                 Terdanai
               </p>
-              <p v-else class="text-yellow-500">Berjalan</p>
+
+              <div v-else class="status flex gap-3">
+                <p class="text-yellow-500 relative">Berjalan</p>
+                <v-app>
+                  <v-tooltip top class="absolute p-5">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn color="primary" dark v-bind="attrs" v-on="on">
+                        ?
+                      </v-btn>
+                    </template>
+                    <span
+                      >Dana disalurkan jika sudah mencapai Rp{{
+                        new Intl.NumberFormat().format(
+                          campaign.data.goal_amount * 0.75
+                        )
+                      }}
+                    </span>
+                  </v-tooltip>
+                </v-app>
+              </div>
             </h3>
 
             <!-- Perks -->
@@ -267,9 +286,12 @@
       <div class="container mx-auto pt-8">
         <div class="flex justify-between items-center">
           <div class="w-full md:w-3/4 mr-6">
-            <h2 class="text-4xl text-gray-900 mb-2 font-medium">
+            <h2 class="text-4xl text-gray-900 mb-1 font-medium">
               {{ campaign.data.name }}
             </h2>
+            <p class="text-md text-gray-300 mb-2 font-medium">
+              {{ campaign.data.address }}
+            </p>
             <p class="font-light text-xl mb-5">
               {{ campaign.data.short_description }}
             </p>
@@ -352,12 +374,10 @@
                 </p>
               </div>
               <div v-else>
-                Tersisa <br />
-                <p class="ml-auto font-semibold text-xl">
+                Terkumpul <br />
+                <p class="ml-auto font-semibold text-xl flex relative">
                   Rp{{
-                    new Intl.NumberFormat().format(
-                      campaign.data.goal_amount - campaign.data.current_amount
-                    )
+                    new Intl.NumberFormat().format(campaign.data.current_amount)
                   }}
                 </p>
               </div>
@@ -453,6 +473,16 @@ export default {
 </script>
 
 <style lang="scss">
+.v-tooltip__content {
+  background: rgb(9, 8, 8) !important;
+  font-size: 12px !important;
+  line-height: 15px !important;
+  padding: 5px 10px !important;
+  left: 0 !important;
+  position: absolute !important;
+}
+/* Input Nominal */
+
 .input-rp {
   border: 1px solid #333;
   border-radius: 30px;

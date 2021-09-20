@@ -47,11 +47,9 @@
           <div class="item flex flex-col">
             <figure class="item-image relative">
               <img
-                width="200"
-                height="150"
                 :src="$axios.defaults.baseURL + '/' + campaign.image_url"
                 alt=""
-                class="object-contain w-full h-full"
+                class="w-full img-proyek"
               />
             </figure>
             <div class="item-meta">
@@ -64,10 +62,10 @@
               </h3>
               <h3
                 class="text-lg font-medium text-gray-900 mt-5"
-                v-if="campaign.name.length > 35"
+                v-if="campaign.name.length > 33"
                 :title="campaign.name"
               >
-                {{ campaign.name.substring(0, 35) + "..." }}
+                {{ campaign.name.substring(0, 33) + "..." }}
               </h3>
               <p
                 class="text-sm font-light text-gray-900 mb-4"
@@ -83,7 +81,7 @@
               </p>
               <!-- Progrees Bar -->
               <div
-                class="pt-4 progress-bar"
+                class="progress-bar"
                 v-if="campaign.goal_amount - campaign.current_amount == 0"
               >
                 <div
@@ -117,7 +115,7 @@
                   ></div>
                 </div>
               </div>
-              <div class="pt-4 progress-bar" v-else>
+              <div class="progress-bar" v-else>
                 <div
                   class="
                     overflow-hidden
@@ -153,17 +151,22 @@
               <!-- Saldo -->
               <div class="flex progress-info justify-between align-center">
                 <div v-if="campaign.goal_amount - campaign.current_amount == 0">
-                  <p class="ml-auto font-semibold text-green-500 text-md">
-                    Terdanai Penuh
+                  <p class="ml-auto font-semibold text-green-500 text-sm">
+                    Terdanai <br />
+                    Penuh
+                  </p>
+                </div>
+                <div v-else-if="campaign.current_amount == 0">
+                  <p class="ml-auto font-semibold text-yellow-500 text-sm">
+                    Belum Ada <br />
+                    Pembiayaan Masuk
                   </p>
                 </div>
                 <div v-else>
-                  Tersisa <br />
-                  <p alt="tersisa" class="ml-auto font-semibold">
+                  Terkumpul <br />
+                  <p class="ml-auto font-semibold">
                     Rp{{
-                      new Intl.NumberFormat().format(
-                        campaign.goal_amount - campaign.current_amount
-                      )
+                      new Intl.NumberFormat().format(campaign.current_amount)
                     }}
                   </p>
                 </div>
@@ -251,6 +254,12 @@ export default {
   async asyncData({ $axios }) {
     const projek = await $axios.$get("/api/v1/projek");
     return { projek };
+  },
+
+  inject: {
+    theme: {
+      default: { isDark: false },
+    },
   },
 };
 </script>

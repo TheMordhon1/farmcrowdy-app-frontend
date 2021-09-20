@@ -158,7 +158,6 @@ footer {
   opacity: 0.3;
 }
 
-
 .auth-page {
   background-color: #3b41e3;
   background-image: url("/auth-background.svg");
@@ -166,3 +165,19 @@ footer {
   background-repeat: no-repeat;
 }
 
+/* Tooltip ? */
+.v-application--wrap {
+  min-height: 3vh !important;
+  position: relative;
+}
+
+.v-btn:not(.v-btn--round).v-size--default {
+  height: 18px !important;
+  min-width: 0px !important;
+  padding: 0 5px !important;
+}
+
+/* Image Proyek */
+.img-proyek {
+  height: 250px !important;
+}

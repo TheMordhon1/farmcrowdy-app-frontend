@@ -79,8 +79,11 @@
             "
           >
             <div>
-              <div class="text-gray-900 font-bold text-2xl mb-4 capitalize">
+              <div class="text-gray-900 font-bold text-2xl mb-1 capitalize">
                 "{{ campaign.data.name }}"
+              </div>
+              <div class="text-gray-300 font-bold text-md mb-4 capitalize">
+                {{ campaign.data.address }}
               </div>
               <p class="font-bold flex items-center capitalize text-md mb-2">
                 deskripsi singkat

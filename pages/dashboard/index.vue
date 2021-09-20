@@ -100,8 +100,20 @@
               >
                 Terdanai Penuh
               </p>
+              <p
+                class="
+                  text-sm text-gray-600
+                  flex
+                  items-center
+                  mb-2
+                  text-orange-button
+                "
+                v-else-if="campaign.current_amount == 0"
+              >
+                Belum Ada Pembiayaan Masuk
+              </p>
               <p class="text-sm text-gray-600 flex items-center mb-2" v-else>
-                Rp.{{
+                Tersisa Rp.{{
                   new Intl.NumberFormat().format(
                     campaign.goal_amount - campaign.current_amount
                   )

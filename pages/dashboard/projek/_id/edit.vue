@@ -172,6 +172,41 @@
                   />
                 </div>
 
+                <div class="w-full mb-4 px-3">
+                  <label
+                    class="
+                      block
+                      uppercase
+                      tracking-wide
+                      text-gray-700 text-xs
+                      font-bold
+                      mb-2
+                      mt-3
+                    "
+                  >
+                    Alamat
+                  </label>
+                  <input
+                    class="
+                      appearance-none
+                      block
+                      w-full
+                      bg-gray-200
+                      text-gray-700
+                      border border-gray-200
+                      rounded
+                      py-3
+                      px-4
+                      mb-3
+                      leading-tight
+                      focus:outline-none focus:border-gray-500
+                    "
+                    type="text"
+                    placeholder="Deskripsi singkat mengenai projectmu"
+                    v-model="campaign.data.address"
+                  />
+                </div>
+
                 <div class="w-full mb-4 md:w-1/2 px-3">
                   <label
                     class="
