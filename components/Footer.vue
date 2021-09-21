@@ -1,12 +1,37 @@
 <template lang="">
-  <footer class="bg-purple-progress py-20 text-white text-lg">
+  <footer class="py-20 text-white text-lg">
+    <section class="call-to-action  mb-40">
+      <div class="container mx-auto">
+        <div class="w-full text-center">
+          <h1 class="text-5xl text-white font-semibold">
+            Membantu Petani
+            <br />
+            untuk Maju
+          </h1>
+          <button
+            @click="$router.push({ path: '/upload' })"
+            class="
+              inline-block
+              bg-button
+              text-white
+              font-semibold
+              px-6
+              py-4
+              mt-8
+              text-lg
+              rounded-full
+            "
+          >
+            Mulai Sekarang
+          </button>
+        </div>
+      </div>
+    </section>
     <div class="container mx-auto">
       <div class="sm:flex mb-4">
         <div class="sm:w-1/2 sm:mt-0 mt-8 h-auto">
           <img src="logo@2x.png" alt="" class="mb-3" />
-          <p class="font-light">
-            Membantu Petani<br />Dapat Akses Permodalan
-          </p>
+          <p class="font-light">Membantu Petani<br />Dapat Akses Permodalan</p>
         </div>
         <div class="sm:w-1/4 h-auto">
           <div class="mb-8 font-bold">Jelajahi</div>
@@ -36,10 +61,11 @@
           </ul>
         </div>
       </div>
+      <img class="leafs-footer-img" src="/leafs.png"></img>
     </div>
   </footer>
 </template>
 <script>
-export default {}
+export default {};
 </script>
 <style lang=""></style>

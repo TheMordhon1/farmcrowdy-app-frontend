@@ -14,6 +14,43 @@ body {
   @apply block w-full px-6 py-4 rounded-full text-gray-800 transition duration-300 ease-in-out;
 }
 
+.link-hover:hover {
+  border-bottom: 2px solid #fff;
+}
+
+.color-blue {
+  color: #1190cc;
+}
+
+.bg-blue {
+  background-color: #1190cc;
+}
+
+.color-green {
+  color: #376a4d;
+}
+
+.bg-green {
+  background-color: #376a4d;
+}
+
+.bg-button {
+  background-color: #1190cc;
+  border-radius: 10px;
+  transition: 0.4s ease;
+}
+.bg-button-green {
+  background-color: #376a4d;
+  border-radius: 10px;
+  transition: 0.4s ease;
+}
+
+.bg-button:hover,
+.bg-button-green:hover {
+  box-shadow: 7px 5px 24px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
 .progress-striped {
   background-image: linear-gradient(
     135deg,
@@ -29,20 +66,16 @@ body {
 }
 
 .project-header {
-  background-image: url("/auth-background.svg");
+  background-image: url("/bg-header.png");
   background-position: top right;
   background-repeat: no-repeat;
-  background-color: #3b41e3;
-  background-size: 250px;
   height: 350px;
 }
 
 .dashboard-header {
-  background-image: url("/auth-background.svg");
+  background-image: url("/bg-header.png");
   background-position: top right;
   background-repeat: no-repeat;
-  background-color: #3b41e3;
-  background-size: 250px;
   height: 100px;
 }
 
@@ -53,13 +86,10 @@ body {
   right: 0;
   left: 0;
   width: 100%;
-  height: 640px;
-  background-image: url("/auth-background.svg");
+  height: 750px;
   background-position: top right;
   background-repeat: no-repeat;
-  background-color: #3b41e3;
-  transform: skewY(-6deg);
-  transform-origin: top left;
+  background-image: url("/bg-header.png");
 }
 
 .cta-clip {
@@ -76,13 +106,6 @@ body {
   background-color: #fff;
   transform: skewY(4deg);
   transform-origin: bottom right;
-}
-
-.call-to-action {
-  background-image: url("/auth-background.svg");
-  background-position: top right;
-  background-repeat: no-repeat;
-  background-size: 450px;
 }
 
 .card-project {
@@ -109,12 +132,31 @@ body {
   transition: all 300ms ease;
 } */
 
+.call-to-action {
+  position: relative;
+  z-index: 10;
+}
+
 footer {
-  z-index: inherit;
+  position: relative;
+  width: 100%;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-color: #376a4d;
+  margin-top: 100px;
+  z-index: 15;
+}
+
+footer .leafs-footer-img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 35%;
 }
 
 .hero-underline {
-  text-decoration-color: #1abc9c;
+  text-decoration-color: #fff;
 }
 
 .testimonial-user {

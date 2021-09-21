@@ -111,7 +111,7 @@
                       whitespace-nowrap
                       text-white
                       justify-center
-                      bg-green-500
+                      bg-green
                     "
                   ></div>
                 </div>
@@ -143,7 +143,7 @@
                       whitespace-nowrap
                       text-white
                       justify-center
-                      bg-purple-progress
+                      bg-green
                     "
                   ></div>
                 </div>
@@ -152,13 +152,13 @@
               <!-- Saldo -->
               <div class="flex progress-info justify-between align-center">
                 <div v-if="campaign.goal_amount - campaign.current_amount == 0">
-                  <p class="ml-auto font-semibold text-green-500 text-sm">
+                  <p class="ml-auto font-semibold color-green text-sm">
                     Terdanai <br />
                     Penuh
                   </p>
                 </div>
                 <div v-else-if="campaign.current_amount == 0">
-                  <p class="ml-auto font-semibold text-yellow-500 text-sm">
+                  <p class="ml-auto font-semibold color-blue text-sm">
                     Belum Ada <br />
                     Pembiayaan Masuk
                   </p>
@@ -191,7 +191,7 @@
                 button-cta
                 block
                 w-full
-                bg-green-button
+                bg-button-green
                 text-white
                 font-semibold
                 px-6
@@ -201,30 +201,6 @@
               v-if="campaign.goal_amount - campaign.current_amount == 0"
             >
               Lihat Proyek
-            </button>
-            <button
-              @click="
-                $router.push({
-                  name: '/projek-id',
-                  params: { id: campaign.id },
-                })
-              "
-              class="
-                mt-5
-                button-cta
-                block
-                w-full
-                bg-orange-button
-                hover:bg-green-button
-                text-white
-                font-semibold
-                px-6
-                py-2
-                text-lg
-              "
-              v-else
-            >
-              Bantu Proyek Ini
             </button>
             <p class="mt-2 text-sm">
               <span class="font-light text-gray-900 text-sm"
@@ -238,8 +214,6 @@
         </div>
       </div>
     </section>
-    <div class="cta-clip -mt-20"></div>
-    <CallToAction />
     <Footer />
   </div>
 </template>

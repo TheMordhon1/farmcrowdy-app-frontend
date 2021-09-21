@@ -5,32 +5,22 @@
         <img src="/logo@2x.png" alt="logo" class="h-full" />
       </v-avatar>
     </div>
-    <ul class="flex items-center">
+    <ul class="flex items-center gap-10">
       <li>
-        <nuxt-link
-          class="text-white hover:text-yellow-500 text-lg px-4 py-3"
-          to="/"
-          >Home</nuxt-link
-        >
+        <nuxt-link class="text-white link-hover text-lg" to="/">Home</nuxt-link>
       </li>
       <li>
-        <nuxt-link
-          class="text-white hover:text-yellow-500 text-lg px-4 py-3"
-          to="/#proyek"
+        <nuxt-link class="text-white link-hover text-lg" to="/#proyek"
           >Proyek</nuxt-link
         >
       </li>
       <li>
-        <nuxt-link
-          class="text-white hover:text-yellow-500 text-lg px-4 py-3"
-          to="/#fitur"
+        <nuxt-link class="text-white link-hover text-lg" to="/#fitur"
           >Fitur</nuxt-link
         >
       </li>
       <li>
-        <nuxt-link
-          class="text-white hover:text-yellow-500 text-lg px-4 py-3"
-          to="/#story"
+        <nuxt-link class="text-white link-hover text-lg" to="/#story"
           >Kisah Sukses</nuxt-link
         >
       </li>

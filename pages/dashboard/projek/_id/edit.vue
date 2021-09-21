@@ -416,8 +416,6 @@
         </div>
       </div>
     </section>
-    <div class="cta-clip -mt-20"></div>
-    <CallToAction />
     <Footer />
   </div>
 </template>

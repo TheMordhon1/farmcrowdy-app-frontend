@@ -143,7 +143,7 @@
                       whitespace-nowrap
                       text-white
                       justify-center
-                      bg-purple-progress
+                      bg-blue
                     "
                   ></div>
                 </div>
@@ -158,7 +158,7 @@
                   </p>
                 </div>
                 <div v-else-if="campaign.current_amount == 0">
-                  <p class="ml-auto font-semibold text-yellow-500 text-sm">
+                  <p class="ml-auto font-semibold color-blue text-sm">
                     Belum Ada <br />
                     Pembiayaan Masuk
                   </p>
@@ -214,8 +214,7 @@
                 button-cta
                 block
                 w-full
-                bg-orange-button
-                hover:bg-green-button
+                bg-button
                 text-white
                 font-semibold
                 px-6
@@ -238,8 +237,6 @@
         </div>
       </div>
     </section>
-    <div class="cta-clip -mt-20"></div>
-    <CallToAction />
     <Footer />
   </div>
 </template>

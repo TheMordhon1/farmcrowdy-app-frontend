@@ -206,6 +206,7 @@
                       px-4
                       leading-tight
                       focus:outline-none focus:bg-white focus:border-gray-500
+                      mb-3
                     "
                     type="number"
                     placeholder="ex: 100000"
@@ -387,7 +388,7 @@
             </form>
             <div class="block w-full text-right">
               <button
-                @click="save"
+                @click="save && myFunction()"
                 class="
                   bg-green-button
                   hover:bg-green-button
@@ -407,8 +408,6 @@
         </div>
       </div>
     </section>
-    <div class="cta-clip -mt-20"></div>
-    <CallToAction />
     <Footer />
   </div>
 </template>
@@ -466,5 +465,14 @@ export default {
       color: rgba(17, 132, 255, 0.576);
     }
   }
+}
+
+.v-text-field {
+  padding-top: 12px;
+  margin-left: 0.8rem;
+}
+
+.v-text-field__details {
+  display: none !important;
 }
 </style>

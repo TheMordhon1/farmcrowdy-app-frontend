@@ -5,7 +5,7 @@
         <Navbar />
       </div>
     </section>
-    <section class="container mx-auto pt-8">
+    <section class="container mx-auto pt-8 mt-10">
       <div class="flex justify-between items-center mb-6">
         <div class="w-3/4 mr-6">
           <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
@@ -109,8 +109,7 @@
         </div>
       </div>
     </section>
-    <div class="cta-clip -mt-20"></div>
-    <section class="call-to-action bg-purple-progress pt-64 pb-10"></section>
+    <section class="call-to-action pt-64 pb-10"></section>
     <Footer />
   </div>
 </template>

@@ -5,7 +5,7 @@
         <Navbar />
       </div>
     </section>
-    <section class="container mx-auto pt-8">
+    <section class="container mx-auto pt-8 mt-10">
       <div class="flex justify-between items-center mb-6">
         <div class="w-3/4 mr-6">
           <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
@@ -27,8 +27,7 @@
           <nuxt-link
             to="/dashboard/projek/create"
             class="
-              bg-orange-button
-              hover:bg-green-button
+              bg-button
               text-white
               font-bold
               py-4
@@ -89,25 +88,13 @@
                 {{ campaign.name }}
               </div>
               <p
-                class="
-                  text-sm text-gray-600
-                  flex
-                  items-center
-                  mb-2
-                  text-green-500
-                "
+                class="text-sm text-gray-600 flex items-center mb-2 color-green"
                 v-if="campaign.goal_amount - campaign.current_amount == 0"
               >
                 Terdanai Penuh
               </p>
               <p
-                class="
-                  text-sm text-gray-600
-                  flex
-                  items-center
-                  mb-2
-                  text-orange-button
-                "
+                class="text-sm text-gray-600 flex items-center mb-2 color-blue"
                 v-else-if="campaign.current_amount == 0"
               >
                 Belum Ada Pembiayaan Masuk
@@ -128,7 +115,7 @@
             <div class="flex items-center">
               <nuxt-link
                 :to="'/dashboard/projek/' + campaign.id"
-                class="bg-green-button text-white py-2 px-4 rounded"
+                class="bg-button-green text-white py-2 px-4 rounded"
               >
                 Detail
               </nuxt-link>
@@ -144,8 +131,6 @@
         </div>
       </div>
     </section>
-    <div class="cta-clip -mt-20"></div>
-    <section class="call-to-action bg-purple-progress pt-64 pb-10"></section>
     <Footer />
   </div>
 </template>

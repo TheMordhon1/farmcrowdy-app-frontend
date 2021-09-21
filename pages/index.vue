@@ -21,7 +21,7 @@
       </div>
       <div class="grid grid-cols-3 mt-3 gap-y-10 gap-x-6">
         <div
-          v-for="campaign in projek.data.slice(0, 3)"
+          v-for="campaign in projek.data.slice(3, 6)"
           :key="campaign.id"
           class="card-project border rounded-6 p-4"
           :title="campaign.name"
@@ -96,7 +96,7 @@
                         whitespace-nowrap
                         text-white
                         justify-center
-                        bg-green-500
+                        bg-green
                       "
                     ></div>
                   </div>
@@ -137,7 +137,7 @@
                         whitespace-nowrap
                         text-white
                         justify-center
-                        bg-purple-progress
+                        bg-blue
                       "
                     ></div>
                   </span>
@@ -150,13 +150,13 @@
               <!-- Saldo -->
               <div class="flex progress-info justify-between align-center">
                 <div v-if="campaign.goal_amount == campaign.current_amount">
-                  <p class="ml-auto font-semibold text-green-500 text-sm">
+                  <p class="ml-auto font-semibold color-green text-sm">
                     Terdanai <br />
                     Penuh
                   </p>
                 </div>
                 <div v-else-if="campaign.current_amount == 0">
-                  <p class="ml-auto font-semibold text-yellow-500 text-sm">
+                  <p class="ml-auto font-semibold color-blue text-sm">
                     Belum Ada <br />
                     Pembiayaan Masuk
                   </p>
@@ -189,7 +189,7 @@
                 button-cta
                 block
                 w-full
-                bg-green-button
+                bg-button-green
                 text-white
                 font-semibold
                 px-6
@@ -212,8 +212,7 @@
                 button-cta
                 block
                 w-full
-                bg-orange-button
-                hover:bg-green-button
+                bg-button
                 text-white
                 font-semibold
                 px-6
@@ -237,8 +236,6 @@
       </div>
     </section>
     <Story />
-    <div class="cta-clip -mt-20"></div>
-    <CallToAction />
     <Footer />
   </div>
 </template>

@@ -19,14 +19,13 @@
             to="/semua-proyek"
             class="
               block
-              bg-orange-button
-              hover:bg-green-button
+              bg-button
               text-white
               font-semibold
               px-12
               py-3
               text-xl
-              rounded-full
+              rounded-16
               text-center
               w-2/4
             "

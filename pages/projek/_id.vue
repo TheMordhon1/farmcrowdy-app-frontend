@@ -10,11 +10,7 @@
         <div style="width: 72%" class="mr-6">
           <div class="bg-white p-3 mb-3 border border-gray-400 rounded-20">
             <figure class="item-image">
-              <img
-                :src="default_image"
-                alt=""
-                class="rounded-20 w-max max-h-66"
-              />
+              <img :src="default_image" alt="" class="rounded-20 w-full h-66" />
             </figure>
           </div>
           <div class="flex -mx-2">
@@ -82,13 +78,13 @@
                 v-if="
                   campaign.data.goal_amount - campaign.data.current_amount == 0
                 "
-                class="text-green-500"
+                class="color-green"
               >
                 Terdanai
               </p>
 
               <div v-else class="status flex gap-3">
-                <p class="text-yellow-500 relative">Berjalan</p>
+                <p class="color-blue relative">Berjalan</p>
                 <v-app>
                   <v-tooltip top class="absolute p-5">
                     <template v-slot:activator="{ on, attrs }">
@@ -173,11 +169,9 @@
                     @click="fund"
                     class="
                       mt-3
-                      button-cta
                       block
                       w-full
-                      bg-orange-button
-                      hover:bg-green-button
+                      bg-button
                       text-white
                       font-medium
                       px-6
@@ -197,8 +191,7 @@
                       button-cta
                       block
                       w-full
-                      bg-orange-button
-                      hover:bg-green-button
+                      bg-button
                       text-white
                       font-medium
                       px-6
@@ -238,7 +231,7 @@
                       button-cta
                       block
                       w-full
-                      bg-orange-button
+                      bg-button
                       hover:bg-green-button
                       text-white
                       font-medium
@@ -327,7 +320,7 @@
                     whitespace-nowrap
                     text-white
                     justify-center
-                    bg-green-500
+                    bg-green
                   "
                 ></div>
               </div>
@@ -358,7 +351,7 @@
                     whitespace-nowrap
                     text-white
                     justify-center
-                    bg-purple-progress
+                    bg-blue
                   "
                 ></div>
               </div>
@@ -419,8 +412,6 @@
         </div>
       </div>
     </template>
-
-    <CallToAction />
     <Footer />
   </div>
 </template>
