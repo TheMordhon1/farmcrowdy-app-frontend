@@ -8,7 +8,7 @@
     <section class="container mx-auto pt-8 mt-10">
       <div class="flex justify-between items-center mb-6">
         <div class="w-3/4 mr-6">
-          <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
+          <h2 class="text-4xl text-gray-900 mb-8 font-medium">Dashboard</h2>
           <ul class="flex mt-2">
             <li class="mr-6">
               <nuxt-link
@@ -30,6 +30,9 @@
         
       </div>
       <hr />
+      <div v-if="transaksi.data == 0">
+          <EmptyStateTransaksi />
+        </div>
       <div
         class="block mb-2"
         v-for="transaction in transaksi.data"
@@ -109,8 +112,7 @@
         </div>
       </div>
     </section>
-    <section class="call-to-action pt-64 pb-10"></section>
-    <Footer />
+    <Footer2 />
   </div>
 </template>
 <script>

@@ -1,8 +1,8 @@
 <template lang="">
   <div class="container mx-auto h-screen flex justify-center items-center">
-    <div class="w-full lg:w-1/3 px-10 lg:px-0">
+    <div class="w-full lg:w-1/4 px-10 lg:px-0 py-10">
       <div class="flex justify-center items-center mx-auto mt-6 mb-8">
-        <img src="/success-illustration.svg" alt="" class="w-full" />
+        <img src="/success-illustration.png" alt="" class="w-full" />
       </div>
       <h2 class="font-medium mb-3 text-3xl text-center">Berhasil :)</h2>
       <p class="text-center font-light">
@@ -15,8 +15,7 @@
             class="
               block
               w-full
-              bg-orange-button
-              hover:bg-green-button
+              bg-button-rounded
               text-white
               font-semibold
               px-6

@@ -1,8 +1,8 @@
 <template lang="">
   <div class="container mx-auto h-screen flex justify-center items-center">
     <div class="w-full lg:w-1/3 px-10 lg:px-0">
-      <div class="flex justify-center items-center mx-auto mt-6 mb-8">
-        <img src="/success-illustration.svg" alt="" class="w-full" />
+      <div class="flex justify-center items-center mx-auto mb-8">
+        <img src="/success-illustration.png" alt="" class="w-full" />
       </div>
       <h2 class="font-medium mb-3 text-3xl text-center">Selamat Datang!</h2>
       <p class="text-center font-light">
@@ -11,14 +11,13 @@
         Ke Dalam Sistem
       </p>
       <div class="mb-4 mt-6">
-        <div class="mb-3">
+        <div class="mb-10">
           <a
             href="/"
             class="
               block
               w-full
-              bg-orange-button
-              hover:bg-green-button
+              bg-button-rounded
               text-white
               font-semibold
               px-6

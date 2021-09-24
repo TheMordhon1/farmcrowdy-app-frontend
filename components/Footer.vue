@@ -8,8 +8,27 @@
             <br />
             untuk Maju
           </h1>
+          
           <button
-            @click="$router.push({ path: '/upload' })"
+          v-if="this.$store.state.auth.loggedIn"
+            @click="$router.push({ path: '/semua-proyek' })"
+            class="
+              inline-block
+              bg-button
+              text-white
+              font-semibold
+              px-6
+              py-4
+              mt-8
+              text-lg
+              rounded-full
+            "
+          >
+            Mulai Sekarang
+          </button>
+          <button
+          v-else
+            @click="$router.push({ path: '/login' })"
             class="
               inline-block
               bg-button

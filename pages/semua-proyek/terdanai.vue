@@ -214,7 +214,7 @@
         </div>
       </div>
     </section>
-    <Footer />
+    <Footer2 />
   </div>
 </template>
 

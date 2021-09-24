@@ -13,9 +13,9 @@
         </div>
         <div class="w-auto mt-5">
           <nuxt-link
-            class="text-gray-900 hover:underline text-md font-medium"
+            class="text-gray-900 link text-md font-medium"
             to="/semua-proyek"
-            >Lihat Semua</nuxt-link
+            >>>> Lihat Semua</nuxt-link
           >
         </div>
       </div>

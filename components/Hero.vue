@@ -25,7 +25,6 @@
               px-12
               py-3
               text-xl
-              rounded-16
               text-center
               w-2/4
             "

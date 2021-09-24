@@ -55,8 +55,7 @@
               class="
                 block
                 w-full
-                bg-orange-button
-                hover:bg-green-button
+                bg-button
                 text-white
                 font-semibold
                 px-6
@@ -72,7 +71,7 @@
         <div class="text-center">
           <p class="text-white text-md">
             Belum punya akun ?
-            <nuxt-link to="/daftar" class="no-underline text-orange-button"
+            <nuxt-link to="/daftar" class="no-underline color-blue"
               >Daftar</nuxt-link
             >
           </p>

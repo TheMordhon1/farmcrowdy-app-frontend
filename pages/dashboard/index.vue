@@ -8,7 +8,7 @@
     <section class="container mx-auto pt-8 mt-10">
       <div class="flex justify-between items-center mb-6">
         <div class="w-3/4 mr-6">
-          <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
+          <h2 class="text-4xl text-gray-900 mb-8 font-medium">Dashboard</h2>
           <ul class="flex mt-2">
             <li class="mr-6">
               <p class="text-gray-800 font-bold">Proyek Anda</p>
@@ -23,7 +23,24 @@
             </li>
           </ul>
         </div>
-        <div class="w-1/4 text-right">
+        <div class="w-1/4 text-right hidden" v-if="projek.data == 0">
+          <nuxt-link
+            to="/dashboard/projek/create"
+            class="
+              bg-button
+              text-white
+              font-bold
+              py-4
+              px-4
+              rounded
+              inline-flex
+              items-center
+            "
+          >
+            + Buat Proyek</nuxt-link
+          >
+        </div>
+        <div class="w-1/4 text-right block" v-else>
           <nuxt-link
             to="/dashboard/projek/create"
             class="
@@ -42,7 +59,11 @@
         </div>
       </div>
       <hr />
+
       <div class="block mb-2">
+        <div v-if="projek.data == 0">
+          <EmptyState />
+        </div>
         <div
           class="w-full lg:max-w-full lg:flex mb-4"
           v-for="campaign in projek.data"

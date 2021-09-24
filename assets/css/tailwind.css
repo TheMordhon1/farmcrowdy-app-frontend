@@ -17,6 +17,9 @@ body {
 .link-hover:hover {
   border-bottom: 2px solid #fff;
 }
+.link:hover {
+  color: #1190cc;
+}
 
 .color-blue {
   color: #1190cc;
@@ -39,6 +42,11 @@ body {
   border-radius: 10px;
   transition: 0.4s ease;
 }
+.bg-button-rounded {
+  background-color: #1190cc;
+  border-radius: 30px;
+  transition: 0.4s ease;
+}
 .bg-button-green {
   background-color: #376a4d;
   border-radius: 10px;
@@ -46,6 +54,7 @@ body {
 }
 
 .bg-button:hover,
+.bg-button-rounded:hover,
 .bg-button-green:hover {
   box-shadow: 7px 5px 24px rgba(0, 0, 0, 0.3);
   transform: scale(1.02);
@@ -155,6 +164,14 @@ footer .leafs-footer-img {
   width: 35%;
 }
 
+footer .leafs-footer-img2 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 22%;
+}
+
 .hero-underline {
   text-decoration-color: #fff;
 }
@@ -201,12 +218,22 @@ footer .leafs-footer-img {
 }
 
 .auth-page {
-  background-color: #3b41e3;
-  background-image: url("/auth-background.svg");
+  background-image: url("/full-bg-leafs.jpg");
   background-position: top right;
   background-repeat: no-repeat;
 }
 
+.dropdown-menu li:hover {
+  color: #1190cc;
+}
+
+.btn-kembali {
+  border: 2px solid #fff;
+  border-radius: 30px;
+}
+.btn-kembali:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
 /* Tooltip ? */
 .v-application--wrap {
   min-height: 3vh !important;
@@ -222,4 +249,28 @@ footer .leafs-footer-img {
 /* Image Proyek */
 .img-proyek {
   height: 250px !important;
+}
+
+/* Singup & SignIN */
+.theme--light.v-counter,
+.theme--light.v-input input,
+.theme--light.v-input textarea,
+.v-messages__message,
+.theme--light.v-icon,
+.theme--light.v-input input::placeholder,
+.theme--light.v-input textarea::placeholder {
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+.theme--light.v-input:hover,
+.v-text-field > .v-input__control > .v-input__slot:hover {
+  border-color: rgba(255, 255, 255, 1) !important;
+}
+
+/* Empty States */
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

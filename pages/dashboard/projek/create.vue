@@ -388,7 +388,7 @@
             </form>
             <div class="block w-full text-right">
               <button
-                @click="save && myFunction()"
+                @click="save"
                 class="
                   bg-green-button
                   hover:bg-green-button
@@ -425,6 +425,7 @@ export default {
         description_risiko: "",
         description_kelompok_tani: "",
         goal_amount: "",
+        min_pembayaran: "",
         perks: "",
       },
     };

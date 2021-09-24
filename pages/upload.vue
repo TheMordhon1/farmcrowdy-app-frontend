@@ -46,8 +46,7 @@
             class="
               block
               w-full
-              bg-orange-button
-              hover:bg-green-button
+              bg-button-rounded
               text-white
               font-semibold
               px-6
@@ -67,9 +66,7 @@
             class="
               block
               w-full
-              bg-transparent
-              border-white border
-              hover:bg-white hover:bg-opacity-25
+              btn-kembali
               text-white
               font-light
               px-6

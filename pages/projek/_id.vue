@@ -219,9 +219,7 @@
                     :max="
                       campaign.data.goal_amount - campaign.data.current_amount
                     "
-                    min="
-                      1000000
-                    "
+                    :min="campaign.data.min_pembayaran"
                   />
 
                   <button
@@ -250,12 +248,11 @@
                     target="_blank"
                     @click="$router.push({ path: '/login' })"
                     class="
-                      mt-3
+                      mt-5
                       button-cta
                       block
                       w-full
-                      bg-orange-button
-                      hover:bg-green-button
+                      bg-button-rounded
                       text-white
                       font-medium
                       px-6
@@ -362,7 +359,7 @@
                   campaign.data.goal_amount - campaign.data.current_amount == 0
                 "
               >
-                <p class="ml-auto font-semibold text-xl text-green-500">
+                <p class="ml-auto font-semibold text-xl color-green">
                   Terdanai Penuh
                 </p>
               </div>

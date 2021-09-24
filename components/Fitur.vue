@@ -1,8 +1,8 @@
 <template lang="">
-  <section class="container mx-auto pt-24" id="fitur">
+  <section class="container mx-auto pt-24 mt-10" id="fitur">
     <div class="flex justify-between items-center mb-10">
       <div class="w-auto">
-        <h2 class="text-xl text-gray-900 mb-8">
+        <h2 class="text-xl text-gray-900">
           3 Tahapan Untuk <br />
           Mewujudkan Mimpi Mereka
         </h2>

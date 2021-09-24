@@ -11,7 +11,7 @@
                 class="rounded-full border-white border-4 h-40 w-40"
               />
               <img
-                src="/icon-avatar-add.svg"
+                src="/icon-avatar-change.svg"
                 alt=""
                 class="absolute right-0 bottom-0 pb-2"
               />
@@ -46,8 +46,7 @@
             class="
               block
               w-full
-              bg-orange-button
-              hover:bg-green-button
+              bg-button-rounded
               text-white
               font-semibold
               px-6
@@ -67,15 +66,12 @@
             class="
               block
               w-full
-              bg-transparent
-              border-white border
-              hover:bg-white hover:bg-opacity-25
+              btn-kembali
               text-white
               font-light
               px-6
               py-4
               text-lg
-              rounded-full
             "
           >
             Kembali
