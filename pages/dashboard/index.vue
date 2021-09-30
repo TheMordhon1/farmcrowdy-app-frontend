@@ -42,16 +42,9 @@
             Buat Proyek</nuxt-link
           >
         </div>
+
         <div
-          class="
-            lg:hidden lg:w-1/4
-            text-right
-            block
-            fixed
-            bottom-3
-            right-3
-            z-15
-          "
+          class="text-right block fixed lg:bottom-5 bottom-3 right-3 z-50"
           v-else
         >
           <nuxt-link

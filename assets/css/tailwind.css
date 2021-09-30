@@ -121,7 +121,7 @@ body {
   background-image: url("/bg-header.png");
 }
 
-@media (max-width: 600px) {
+@media (max-width: 422px) {
   .header__bg {
     height: 113%;
     background-position: top center;
