@@ -74,7 +74,7 @@
                       focus:outline-none focus:bg-white focus:border-gray-500
                     "
                     type="text"
-                    placeholder="ex: Projek Porang Pak Dudi"
+                    placeholder="Projek Porang Pak Dudi"
                     v-model="campaign.name"
                   />
                 </div>
@@ -91,24 +91,49 @@
                   >
                     Total Biaya Proyek
                   </label>
-                  <input
+                  <div
                     class="
-                      appearance-none
-                      block
-                      w-full
-                      bg-gray-200
-                      text-gray-700
-                      border border-gray-200
-                      rounded
-                      py-3
-                      px-4
-                      leading-tight
-                      focus:outline-none focus:bg-white focus:border-gray-500
+                      form-nominal
+                      flex
+                      justify-center
+                      items-center
+                      relative
                     "
-                    type="number"
-                    placeholder="ex: 60000000"
-                    v-model.number="campaign.goal_amount"
-                  />
+                  >
+                    <span
+                      class="
+                        absolute
+                        bg-gray-200
+                        py-3
+                        px-4
+                        left-0
+                        rounded
+                        text-gray-700
+                      "
+                      >Rp</span
+                    >
+                    <input
+                      class="
+                        appearance-none
+                        block
+                        w-full
+                        bg-gray-200
+                        text-gray-700
+                        border border-gray-200
+                        rounded
+                        py-3
+                        px-4
+                        leading-tight
+                        focus:outline-none focus:bg-white focus:border-gray-500
+                        pl-20
+                      "
+                      type="number"
+                      min="100000"
+                      step="1000000"
+                      placeholder="60000000"
+                      v-model.number="campaign.goal_amount"
+                    />
+                  </div>
                 </div>
                 <div class="w-full px-3">
                   <label
@@ -193,25 +218,51 @@
                   >
                     Minimal Pembiayaan
                   </label>
-                  <input
+                  <div
                     class="
-                      appearance-none
-                      block
-                      w-full
-                      bg-gray-200
-                      text-gray-700
-                      border border-gray-200
-                      rounded
-                      py-3
-                      px-4
-                      leading-tight
-                      focus:outline-none focus:bg-white focus:border-gray-500
-                      mb-3
+                      form-nominal
+                      flex
+                      justify-center
+                      items-center
+                      relative
                     "
-                    type="number"
-                    placeholder="ex: 100000"
-                    v-model.number="campaign.min_pembayaran"
-                  />
+                  >
+                    <span
+                      class="
+                        absolute
+                        bg-gray-200
+                        py-3
+                        px-4
+                        left-0
+                        bottom-3
+                        rounded
+                        text-gray-700
+                      "
+                      >Rp</span
+                    >
+                    <input
+                      class="
+                        appearance-none
+                        block
+                        w-full
+                        bg-gray-200
+                        text-gray-700
+                        border border-gray-200
+                        rounded
+                        py-3
+                        px-4
+                        leading-tight
+                        focus:outline-none focus:bg-white focus:border-gray-500
+                        mb-3
+                        pl-20
+                      "
+                      min="100000"
+                      step="10000"
+                      type="number"
+                      placeholder="100000"
+                      v-model.number="campaign.min_pembayaran"
+                    />
+                  </div>
                 </div>
 
                 <div class="w-full px-3">
@@ -262,7 +313,7 @@
                     Deskripsi Komoditas
                   </label>
                   <textarea
-                    rows="10"
+                    rows="5"
                     class="
                       appearance-none
                       block
@@ -278,7 +329,7 @@
                       focus:outline-none focus:bg-white focus:border-gray-500
                     "
                     type="text"
-                    placeholder=""
+                    placeholder="Komoditas proyek anda"
                     v-model="campaign.description_komoditas"
                   ></textarea>
                 </div>
@@ -296,7 +347,7 @@
                     Deskripsi Prospek
                   </label>
                   <textarea
-                    rows="10"
+                    rows="5"
                     class="
                       appearance-none
                       block
@@ -312,7 +363,7 @@
                       focus:outline-none focus:bg-white focus:border-gray-500
                     "
                     type="text"
-                    placeholder=""
+                    placeholder="Prospek proyek anda"
                     v-model="campaign.description_prospek"
                   ></textarea>
                 </div>
@@ -330,7 +381,7 @@
                     Deskripsi Risiko
                   </label>
                   <textarea
-                    rows="10"
+                    rows="5"
                     class="
                       appearance-none
                       block
@@ -346,7 +397,7 @@
                       focus:outline-none focus:bg-white focus:border-gray-500
                     "
                     type="text"
-                    placeholder=""
+                    placeholder="Risiko proyek anda"
                     v-model="campaign.description_risiko"
                   ></textarea>
                 </div>
@@ -364,7 +415,7 @@
                     Deskripsi Kelompok Tani
                   </label>
                   <textarea
-                    rows="10"
+                    rows="5"
                     class="
                       appearance-none
                       block
@@ -380,7 +431,7 @@
                       focus:outline-none focus:bg-white focus:border-gray-500
                     "
                     type="text"
-                    placeholder=""
+                    placeholder="Deskripsikan kelompok tani"
                     v-model="campaign.description_kelompok_tani"
                   ></textarea>
                 </div>
@@ -390,8 +441,7 @@
               <button
                 @click="save"
                 class="
-                  bg-green-button
-                  hover:bg-green-button
+                  bg-button
                   text-white
                   font-bold
                   px-4
@@ -475,5 +525,11 @@ export default {
 
 .v-text-field__details {
   display: none !important;
+}
+
+/* form */
+input:focus,
+textarea:focus {
+  background-color: yellow !important;
 }
 </style>

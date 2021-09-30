@@ -101,6 +101,14 @@ body {
   background-image: url("/bg-header.png");
 }
 
+@media (max-width: 600px) {
+  .header__bg {
+    height: 100%;
+    background-position: top center;
+    background-image: url("/bg-header-mobile.png");
+  }
+}
+
 .cta-clip {
   position: relative;
   top: 200px;

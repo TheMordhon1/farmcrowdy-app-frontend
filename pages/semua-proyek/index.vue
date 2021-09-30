@@ -5,7 +5,7 @@
         <Navbar />
       </div>
     </section>
-    <section class="container mx-auto pt-24" id="project">
+    <section class="container px-5 md:px-0 mx-auto pt-24" id="project">
       <div class="flex justify-between items-center">
         <div class="w-auto">
           <h2 class="text-xl text-gray-900 mb-8">
@@ -15,11 +15,11 @@
           </h2>
         </div>
       </div>
-      <ul class="flex mt-2">
-        <li class="mr-6">
+      <ul class="flex mt-2 lg:flex-row flex-col">
+        <li class="py-2 text-center lg:mr-6">
           <p class="font-bold">Semua Proyek</p>
         </li>
-        <li class="mr-6">
+        <li class="py-2 text-center lg:mr-6">
           <nuxt-link
             class="text-gray-500 hover:text-gray-800"
             to="/semua-proyek/terdanai"
@@ -27,7 +27,7 @@
             Terdanai
           </nuxt-link>
         </li>
-        <li class="mr-6">
+        <li class="py-2 text-center lg:mr-6">
           <nuxt-link
             class="text-gray-500 hover:text-gray-800"
             to="/semua-proyek/belum-terdanai"
@@ -37,7 +37,7 @@
         </li>
       </ul>
       <hr class="mt-2 mb-5" />
-      <div class="grid grid-cols-3 mt-3 gap-y-10 gap-x-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 mt-3 gap-y-10 gap-x-6">
         <div
           v-for="campaign in projek.data"
           :key="campaign.id"
@@ -93,7 +93,8 @@
                     flex
                     rounded
                     bg-gray-200
-                    h-3
+                    lg:h-3
+                    h-2
                     rounded-lg
                   "
                 >
@@ -125,7 +126,8 @@
                     flex
                     rounded
                     bg-gray-200
-                    h-3
+                    lg:h-3
+                    h-2
                     rounded-lg
                   "
                 >

@@ -48,8 +48,7 @@
               params: { id: campaign.data.id },
             }"
             class="
-              bg-green-button
-              hover:bg-green-button
+              bg-button
               text-white
               font-bold
               px-4
@@ -294,8 +293,7 @@
           <button
             @click="upload"
             class="
-              bg-green-button
-              hover:bg-green-button
+              bg-button
               text-white
               font-bold
               px-4

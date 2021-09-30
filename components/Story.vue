@@ -1,5 +1,5 @@
 <template lang="">
-  <section class="container mx-auto pt-24" id="story">
+  <section class="container px-5 md:px-0 mx-auto pt-24" id="story">
     <div class="flex justify-between items-center">
       <div class="w-auto">
         <h2 class="text-xl text-gray-900 mb-8">
@@ -9,10 +9,10 @@
       </div>
     </div>
     <div class="flex mb-10">
-      <div class="w-2/12 flex justify-center items-start">
+      <div class="hidden lg:block lg:w-2/12 flex justify-center items-start">
         <img src="testimonial-line.svg" alt="" />
       </div>
-      <div class="w-8/12 mt-16">
+      <div class="w-full lg:w-8/12 mt-16">
         <h2 class="text-xl text-gray-900 font-light">
           “FarmCrowdy adalah suatu terobosan bagi dunia pertanian di Indonesia.
           <br />
@@ -62,7 +62,7 @@
           </v-carousel>
         </v-app> -->
       </div>
-      <div class="w-2/12"></div>
+      <div class="hidden lg:w-2/12"></div>
     </div>
   </section>
 </template>

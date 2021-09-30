@@ -2,16 +2,19 @@
   <div class="landing-page">
     <Hero />
     <Fitur />
-    <section class="container mx-auto pt-24" id="proyek">
-      <div class="flex justify-between items-center">
-        <div class="w-auto">
+    <section
+      class="container px-5 md:px-0 mx-auto lg:mx-auto pt-24"
+      id="proyek"
+    >
+      <div class="block lg:flex justify-between items-center">
+        <div class="w-full lg:w-auto">
           <h2 class="text-xl text-gray-900 mb-8">
             Proyek Terbaru yang
             <br />
             Memerlukan Bantuan
           </h2>
         </div>
-        <div class="w-auto mt-5">
+        <div class="hidden lg:block w-full lg:w-auto mt-5">
           <nuxt-link
             class="text-gray-900 link text-md font-medium"
             to="/semua-proyek"
@@ -19,7 +22,7 @@
           >
         </div>
       </div>
-      <div class="grid grid-cols-3 mt-3 gap-y-10 gap-x-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 mt-3 gap-y-10 gap-x-6">
         <div
           v-for="campaign in projek.data.slice(3, 6)"
           :key="campaign.id"
@@ -43,7 +46,7 @@
                 {{ campaign.name }}
               </h3>
               <h3
-                class="text-lg font-medium text-gray-900 mt-5"
+                class="text-md lg:text-lg font-medium text-gray-900 mt-5"
                 v-if="campaign.name.length > 33"
                 :title="campaign.name"
               >
@@ -76,7 +79,8 @@
                       flex
                       rounded
                       bg-gray-200
-                      h-3
+                      lg:h-3
+                      h-2
                       rounded-lg
                     "
                     dark
@@ -117,7 +121,8 @@
                       flex
                       rounded
                       bg-gray-200
-                      h-3
+                      lg:h-3
+                      h-2
                       rounded-lg
                     "
                     dark
@@ -233,6 +238,25 @@
             </p>
           </div>
         </div>
+      </div>
+
+      <div class="block lg:hidden w-full lg:w-auto mt-5">
+        <nuxt-link
+          class="
+            mt-10
+            button-cta
+            block
+            w-full
+            bg-button
+            text-white
+            font-semibold
+            px-6
+            py-2
+            text-lg text-center
+          "
+          to="/semua-proyek"
+          >Lihat Semua</nuxt-link
+        >
       </div>
     </section>
     <Story />

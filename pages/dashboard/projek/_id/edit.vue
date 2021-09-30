@@ -23,8 +23,7 @@
             params: { id: campaign.data.id },
           }"
           class="
-            bg-orange-button
-            hover:bg-orange-button
+            bg-button-green
             text-white
             font-bold
             px-6
@@ -41,8 +40,7 @@
         <button
           @click="save"
           class="
-            bg-green-button
-            hover:bg-green-button
+            bg-button
             text-white
             font-bold
             px-6
@@ -130,7 +128,7 @@
                       focus:outline-none
                     "
                     type="number"
-                    placeholder="ex: 60000000"
+                    placeholder="60000000"
                     v-model.number="campaign.data.goal_amount"
                     readonly
                   />
@@ -234,7 +232,7 @@
                       focus:outline-none
                     "
                     type="number"
-                    placeholder="ex: 100000"
+                    placeholder="100000"
                     v-model.number="campaign.data.min_pembayaran"
                     readonly
                   />
@@ -289,7 +287,7 @@
                     Deskripsi Komoditas
                   </label>
                   <textarea
-                    rows="10"
+                    rows="5"
                     class="
                       appearance-none
                       block
@@ -323,7 +321,7 @@
                     Deskripsi Prospek
                   </label>
                   <textarea
-                    rows="10"
+                    rows="5"
                     class="
                       appearance-none
                       block
@@ -357,7 +355,7 @@
                     Deskripsi Risiko
                   </label>
                   <textarea
-                    rows="10"
+                    rows="5"
                     class="
                       appearance-none
                       block
@@ -391,7 +389,7 @@
                     Deskripsi Kelompok Tani
                   </label>
                   <textarea
-                    rows="10"
+                    rows="5"
                     class="
                       appearance-none
                       block
@@ -460,4 +458,10 @@ export default {
   },
 };
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+/* form */
+input:focus,
+textarea:focus {
+  background-color: yellow !important;
+}
+</style>

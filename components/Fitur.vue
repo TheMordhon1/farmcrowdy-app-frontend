@@ -1,5 +1,5 @@
 <template lang="">
-  <section class="container mx-auto pt-24 mt-10" id="fitur">
+  <section class="container px-5 md:px-0 mx-auto pt-24 mt-10" id="fitur">
     <div class="flex justify-between items-center mb-10">
       <div class="w-auto">
         <h2 class="text-xl text-gray-900">
@@ -13,10 +13,23 @@
         <img src="line-step.svg" alt="" class="w-full" />
       </div>
     </div>
-    <div class="flex justify-between items-center text-center">
-      <div class="w-1/3">
+    <div
+      class="
+        flex flex-col
+        gap-5
+        lg:gap-0 lg:flex-row
+        justify-between
+        items-center
+        text-center
+      "
+    >
+      <div class="w-full lg:w-1/3">
         <figure class="flex justify-center items-center">
-          <img src="step-1-illustration.svg" alt="" class="h-30 mb-8" />
+          <img
+            src="step-1-illustration.svg"
+            alt=""
+            class="h-30 lg:w-1/2 w-1/3 mb-8"
+          />
         </figure>
         <div class="step-content">
           <h3 class="font-medium">Daftar</h3>
@@ -26,9 +39,13 @@
           </p>
         </div>
       </div>
-      <div class="w-1/3">
-        <figure class="flex justify-center items-center -mt-24">
-          <img src="step-2-illustration.svg" alt="" class="h-30 mb-8" />
+      <div class="w-full lg:w-1/3 mt-5 lg:mt-0">
+        <figure class="flex justify-center items-center lg:-mt-24">
+          <img
+            src="step-2-illustration.svg"
+            alt=""
+            class="h-30 lg:w-1/2 w-1/3 mb-8"
+          />
         </figure>
         <div class="step-content">
           <h3 class="font-medium">Buka dan Danai Proyek</h3>
@@ -39,9 +56,13 @@
           </p>
         </div>
       </div>
-      <div class="w-1/3">
-        <figure class="flex justify-center items-center -mt-48">
-          <img src="step-3-illustration.svg" alt="" class="h-30 mb-8" />
+      <div class="w-full lg:w-1/3 mt-5 lg:mt-0">
+        <figure class="flex justify-center items-center lg:-mt-48">
+          <img
+            src="step-3-illustration.svg"
+            alt=""
+            class="h-30 lg:w-1/2 w-1/3 mb-8"
+          />
         </figure>
         <div class="step-content">
           <h3 class="font-medium">Execute</h3>

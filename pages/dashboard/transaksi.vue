@@ -5,10 +5,12 @@
         <Navbar />
       </div>
     </section>
-    <section class="container mx-auto pt-8 mt-10">
+    <section class="container px-5 md:px-0 mx-auto pt-8 mt-10">
       <div class="flex justify-between items-center mb-6">
-        <div class="w-3/4 mr-6">
-          <h2 class="text-4xl text-gray-900 mb-8 font-medium">Dashboard</h2>
+        <div class="w-full lg:w-3/4">
+          <h2 class="text-2xl lg:text-4xl text-gray-900 mb-8 font-medium">
+            Dashboard
+          </h2>
           <ul class="flex mt-2">
             <li class="mr-6">
               <nuxt-link
@@ -19,20 +21,15 @@
               </nuxt-link>
             </li>
             <li class="mr-6">
-              <p
-                class="text-gray-800 font-bold"
-              >
-                Riwayat Transaksi
-              </p>
+              <p class="text-gray-800 font-bold">Riwayat Transaksi</p>
             </li>
           </ul>
         </div>
-        
       </div>
       <hr />
       <div v-if="transaksi.data == 0">
           <EmptyStateTransaksi />
-        </div>
+      </div>
       <div
         class="block mb-2"
         v-for="transaction in transaksi.data"

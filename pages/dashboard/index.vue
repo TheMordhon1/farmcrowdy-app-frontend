@@ -5,10 +5,12 @@
         <Navbar />
       </div>
     </section>
-    <section class="container mx-auto pt-8 mt-10">
-      <div class="flex justify-between items-center mb-6">
-        <div class="w-3/4 mr-6">
-          <h2 class="text-4xl text-gray-900 mb-8 font-medium">Dashboard</h2>
+    <section class="container px-5 md:px-0 mx-auto pt-8 mt-10">
+      <div class="flex lg:justify-between items-center mb-6">
+        <div class="w-full lg:w-3/4 mr-6">
+          <h2 class="text-2xl lg:text-4xl text-gray-900 mb-8 font-medium">
+            Dashboard
+          </h2>
           <ul class="flex mt-2">
             <li class="mr-6">
               <p class="text-gray-800 font-bold">Proyek Anda</p>
@@ -37,10 +39,10 @@
               items-center
             "
           >
-            + Buat Proyek</nuxt-link
+            Buat Proyek</nuxt-link
           >
         </div>
-        <div class="w-1/4 text-right block" v-else>
+        <div class="hidden lg:block lg:w-1/4 text-right block" v-else>
           <nuxt-link
             to="/dashboard/projek/create"
             class="
@@ -54,7 +56,24 @@
               items-center
             "
           >
-            + Buat Proyek</nuxt-link
+            Buat Proyek</nuxt-link
+          >
+        </div>
+        <div class="lg:hidden lg:w-1/4 text-right block absolute" v-else>
+          <nuxt-link
+            to="/dashboard/projek/create"
+            class="
+              bg-button
+              text-white
+              font-bold
+              py-4
+              px-4
+              rounded
+              inline-flex
+              items-center
+            "
+          >
+            Buat Proyek</nuxt-link
           >
         </div>
       </div>
@@ -97,8 +116,8 @@
               lg:border-l-0 lg:border-t lg:border-gray-400
               bg-white
               rounded-b
-              lg:rounded-b-none lg:rounded-r
-              p-8
+              lg:rounded-b-none lg:rounded-r lg:p-8
+              p-4
               flex flex-col
               justify-between
               leading-normal
@@ -141,8 +160,16 @@
                 Detail
               </nuxt-link>
             </div>
-            <p class="text-sm text-gray-600 flex items-center ml-auto">
-              terakhir di ubah pada
+            <p
+              class="
+                text-sm text-gray-600
+                flex
+                items-center
+                ml-auto
+                mt-4
+                lg:mt-0
+              "
+            >
               {{
                 new Date(campaign.updated_at)
                   | dateFormat("DD/MM/YYYY, hh:mm a")
