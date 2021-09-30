@@ -1,9 +1,20 @@
 <template lang="">
-  <section class="landing-hero pt-5">
+  <section class="landing-hero pt-5 relative">
     <div class="header__bg"></div>
     <div class="container mx-auto relative">
-      <Navbar />
-      <div class="flex flex-col items-center pt-10 px-5 md:px-0 lg:flex-row">
+      <Navbar2 />
+      <div
+        class="
+          flex flex-col
+          items-center
+          mt-8
+          lg:mt-10
+          pt-10
+          px-5
+          md:px-0
+          lg:flex-row
+        "
+      >
         <div class="lg:hidden block lg:w-1/2 flex justify-center mt-5 lg:mt-0">
           <img src="hero-image@2x.png" alt="crowdfunding project" />
         </div>

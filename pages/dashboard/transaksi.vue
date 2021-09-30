@@ -2,7 +2,7 @@
   <div class="project-page">
     <section class="dashboard-header pt-5">
       <div class="container mx-auto relative">
-        <Navbar />
+        <Navbar2 />
       </div>
     </section>
     <section class="container px-5 md:px-0 mx-auto pt-8 mt-10">

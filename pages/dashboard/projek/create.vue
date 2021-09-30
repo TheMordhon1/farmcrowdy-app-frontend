@@ -2,23 +2,25 @@
   <div class="project-page">
     <section class="dashboard-header pt-5">
       <div class="container mx-auto relative">
-        <Navbar />
+        <Navbar2 />
       </div>
     </section>
 
-    <section class="container mx-auto pt-8">
+    <section class="container px-5 md:px-0 mx-auto pt-8">
       <div class="flex justify-between items-center">
         <div class="w-full mr-6">
-          <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
+          <h2 class="text-2xl lg:text-4xl text-gray-900 mb-2 font-medium">
+            Dashboard
+          </h2>
         </div>
       </div>
       <div class="flex justify-between items-center">
         <div class="w-4/4 mr-6">
-          <h3 class="text-2xl text-gray-900 mb-4">Buat proyek baru</h3>
+          <h3 class="text-xl text-gray-900 mb-4">Buat proyek baru</h3>
         </div>
       </div>
       <v-alert
-        class="info"
+        class="info text-md lg:text-xl"
         border="top"
         colored-border
         type="info"
@@ -35,10 +37,11 @@
           <div
             class="
               w-full
-              border border-gray-400
+              lg:border
+              border-gray-400
               bg-white
               rounded
-              p-8
+              lg:p-8
               flex flex-col
               justify-between
               leading-normal

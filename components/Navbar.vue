@@ -1,5 +1,5 @@
 <template lang="">
-  <header class="flex items-center">
+  <header class="flex items-center fixed">
     <div style="height: 54px" class="pr-5">
       <v-avatar color="orange" size="62" class="mr-4">
         <img src="/logo@2x.png" alt="logo" class="h-full" />
@@ -131,7 +131,7 @@
             <nuxt-link
               class="
                 bg-white
-                hover:bg-gray-100 
+                hover:bg-gray-100
                 py-2
                 px-4
                 block
@@ -145,7 +145,7 @@
             <nuxt-link
               class="
                 bg-white
-                hover:bg-gray-100 
+                hover:bg-gray-100
                 py-2
                 px-4
                 block

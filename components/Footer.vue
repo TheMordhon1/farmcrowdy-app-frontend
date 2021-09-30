@@ -1,5 +1,5 @@
 <template lang="">
-  <footer class="py-20 text-white text-lg">
+  <footer class="py-20 text-white text-lg relative z-0">
     <section class="call-to-action  lg:mb-40 mb-20">
       <div class="container mx-auto">
         <div class="w-full text-center">

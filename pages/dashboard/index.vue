@@ -2,7 +2,7 @@
   <div class="project-page">
     <section class="dashboard-header pt-5">
       <div class="container mx-auto relative">
-        <Navbar />
+        <Navbar2 />
       </div>
     </section>
     <section class="container px-5 md:px-0 mx-auto pt-8 mt-10">
@@ -42,24 +42,18 @@
             Buat Proyek</nuxt-link
           >
         </div>
-        <div class="hidden lg:block lg:w-1/4 text-right block" v-else>
-          <nuxt-link
-            to="/dashboard/projek/create"
-            class="
-              bg-button
-              text-white
-              font-bold
-              py-4
-              px-4
-              rounded
-              inline-flex
-              items-center
-            "
-          >
-            Buat Proyek</nuxt-link
-          >
-        </div>
-        <div class="lg:hidden lg:w-1/4 text-right block absolute" v-else>
+        <div
+          class="
+            lg:hidden lg:w-1/4
+            text-right
+            block
+            fixed
+            bottom-3
+            right-3
+            z-15
+          "
+          v-else
+        >
           <nuxt-link
             to="/dashboard/projek/create"
             class="

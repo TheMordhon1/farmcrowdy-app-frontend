@@ -2,19 +2,23 @@
   <div class="project-page">
     <section class="dashboard-header pt-5">
       <div class="container mx-auto relative">
-        <Navbar />
+        <Navbar2 />
       </div>
     </section>
 
-    <section class="container mx-auto pt-8">
+    <section class="container px-5 md:px-0 mx-auto pt-8">
       <div class="flex justify-between items-center">
         <div class="w-full mr-6">
-          <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
+          <h2 class="text-2xl lg:text-4xl text-gray-900 mb-2 font-medium">
+            Dashboard
+          </h2>
         </div>
       </div>
       <div class="flex justify-between items-center">
         <div class="w-3/4 mr-6">
-          <h3 class="text-2xl text-gray-900 mb-4 capitalize">detail proyek</h3>
+          <h3 class="text-xl lg:text-2xl text-gray-900 mb-4 capitalize">
+            detail proyek
+          </h3>
         </div>
         <div
           class="w-1/4 text-right"
@@ -66,19 +70,29 @@
         <div class="w-full lg:max-w-full lg:flex mb-4">
           <div
             class="
-              border
+              lg:border
               w-full
-              border-gray-400
+              lg:border-gray-400
               bg-white
               rounded
-              p-8
+              lg:p-8
+              py-5
               flex flex-col
               justify-between
               leading-normal
             "
           >
             <div>
-              <div class="text-gray-900 font-bold text-2xl mb-1 capitalize">
+              <div
+                class="
+                  text-gray-900
+                  font-bold
+                  text-xl
+                  lg:text-2xl
+                  mb-1
+                  capitalize
+                "
+              >
                 "{{ campaign.data.name }}"
               </div>
               <div class="text-gray-300 font-bold text-md mb-4 capitalize">
@@ -169,7 +183,7 @@
                 >
                   Minimal Pembiayaan
                 </p>
-                <p class="text-4xl text-gray-700 text-base">
+                <p class="text-2xl lg:text-4xl text-gray-700 text-base">
                   Rp.{{
                     new Intl.NumberFormat().format(campaign.data.min_pembayaran)
                   }}
@@ -190,18 +204,24 @@
                 >
                   total biaya proyek
                 </p>
-                <p class="text-4xl text-gray-700 text-base">
+                <p class="text-2xl lg:text-4xl text-gray-700 text-base">
                   Rp.{{
                     new Intl.NumberFormat().format(campaign.data.goal_amount)
                   }}
                 </p>
 
                 <img
-                  class="absolute top-0 right-0 w-1/3 z-0"
+                  class="
+                    absolute
+                    z-0
+                    opacity-20
+                    -top-10
+                    lg:top-0 lg:right-0 lg:w-1/3 lg:z-0
+                  "
                   src="/terdanai.svg"
                 />
               </div>
-              <div class="relative" v-else>
+              <div class="relative z-10" v-else>
                 <p
                   class="
                     font-bold
@@ -221,7 +241,7 @@
                   </li>
                 </ul>
 
-                <div class="flex justify-between">
+                <div class="flex flex-col lg:flex-row justify-between">
                   <!-- Minimal Pembiayaan -->
                   <div>
                     <p
@@ -238,7 +258,7 @@
                     >
                       Minimal Pembiayaan
                     </p>
-                    <p class="text-4xl text-gray-700 text-base">
+                    <p class="text-2xl lg:text-4xl text-gray-700 text-base">
                       Rp.{{
                         new Intl.NumberFormat().format(
                           campaign.data.min_pembayaran
@@ -263,7 +283,7 @@
                     >
                       total biaya proyek
                     </p>
-                    <p class="text-4xl text-gray-700 text-base">
+                    <p class="text-2xl lg:text-4xl text-gray-700 text-base">
                       Rp.{{
                         new Intl.NumberFormat().format(
                           campaign.data.goal_amount
@@ -281,9 +301,11 @@
       <!-- Gambar Proyek -->
       <div class="flex justify-between items-center">
         <div class="w-3/4 mr-6">
-          <h3 class="text-2xl text-gray-900 mb-4 mt-5">Gambar Proyek</h3>
+          <h3 class="text-xl lg:text-2xl text-gray-900 mb-4 mt-5">
+            Gambar Proyek
+          </h3>
         </div>
-        <div class="w-2/4 text-right">
+        <div class="hidden lg:block w-2/4 text-right">
           <input
             type="file"
             ref="file"
@@ -315,8 +337,7 @@
             bg-white
             m-2
             p-2
-            border border-gray-400
-            rounded
+            lg:border lg:border-gray-400 lg:rounded
           "
           v-for="image in campaign.data.images"
           :key="image.image_url"
@@ -325,14 +346,41 @@
             <img
               :src="$axios.defaults.baseURL + '/' + image.image_url"
               alt=""
-              class="rounded w-full"
+              class="lg:rounded w-full"
             />
           </figure>
         </div>
       </div>
+      <!-- Mobile input image -->
+      <div class="lg:hidden block w-full text-center flex mt-5">
+        <input
+          type="file"
+          ref="file"
+          @change="selectFile"
+          class="border p-1 rounded overflow-hidden mr-2"
+        />
+        <button
+          @click="upload"
+          class="
+            bg-button
+            text-white
+            font-bold
+            px-4
+            p-2
+            rounded
+            inline-flex
+            items-center
+          "
+        >
+          Upload
+        </button>
+      </div>
+      <!-- Mobile Input Image -->
       <div class="flex justify-between items-center">
         <div class="w-3/4 mr-6">
-          <h3 class="text-2xl text-gray-900 mb-4 mt-5">
+          <h3
+            class="text-xl lg:text-2xl text-gray-900 mb-2 lg:mb-4 mt-8 lg:mt-5"
+          >
             Daftar Transaksi Masuk
           </h3>
         </div>
@@ -346,11 +394,12 @@
           <div
             class="
               w-full
-              border border-gray-400
               lg:border-gray-400
               bg-white
               rounded
-              p-8
+              lg:p-8
+              border-b-2
+              py-5
               flex flex-col
               justify-between
               leading-normal
@@ -455,4 +504,8 @@ export default {
   },
 };
 </script>
-<style lang=""></style>
+<style lang="css">
+.label-terdanai-img {
+  z-index: 0;
+}
+</style>

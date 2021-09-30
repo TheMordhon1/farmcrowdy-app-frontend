@@ -2,10 +2,10 @@
   <div class="landing-page">
     <section class="dashboard-header pt-5">
       <div class="container mx-auto relative">
-        <Navbar />
+        <Navbar2 />
       </div>
     </section>
-    <section class="container px-5 md:px-0 mx-auto pt-24" id="project">
+    <section class="container px-5 md:px-0 mx-auto pt-10 lg:pt-24" id="project">
       <div class="flex justify-between items-center">
         <div class="w-auto">
           <h2 class="text-xl text-gray-900 mb-8">

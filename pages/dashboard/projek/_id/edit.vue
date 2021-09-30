@@ -2,16 +2,18 @@
   <div class="project-page">
     <section class="dashboard-header pt-5">
       <div class="container mx-auto relative">
-        <Navbar />
+        <Navbar2 />
       </div>
     </section>
 
-    <section class="container mx-auto pt-8">
+    <section class="container px-5 md:px-0 mx-auto pt-8">
       <div class="w-full mr-6">
-        <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
+        <h2 class="text-2xl lg:text-4xl text-gray-900 mb-2 font-medium">
+          Dashboard
+        </h2>
       </div>
       <div class="w-full mr-6">
-        <h3 class="text-2xl text-gray-900 mb-4 capitalize">
+        <h3 class="text-xl lg:text-2xl text-gray-900 mb-4 capitalize">
           edit proyek "{{ campaign.data.name }}"
         </h3>
       </div>
@@ -53,15 +55,17 @@
           Ubah
         </button>
       </div>
+      <hr class="lg:hidden block my-5" />
       <div class="block mb-2">
         <div class="w-full lg:max-w-full lg:flex mb-4">
           <div
             class="
               w-full
-              border border-gray-400
+              lg:border
+              border-gray-400
               bg-white
               rounded
-              p-8
+              lg:p-8
               flex flex-col
               justify-between
               leading-normal
