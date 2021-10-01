@@ -5,7 +5,7 @@
         <Navbar2 />
       </div>
     </section>
-    <section class="container px-5 md:px-0 mx-auto pt-8 mt-10">
+    <section class="container px-5 md:px-0 mx-auto pt-8 lg:mt-10 mt-5">
       <div class="flex lg:justify-between items-center mb-6">
         <div class="w-full lg:w-3/4 mr-6">
           <h2 class="text-2xl lg:text-4xl text-gray-900 mb-8 font-medium">

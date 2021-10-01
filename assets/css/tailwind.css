@@ -57,14 +57,14 @@ body {
   font-weight: bold;
 }
 
-.bg-button-rounded:hover {
+/* .bg-button-rounded:hover {
   background: #fff;
   color: #1190cc;
-}
-.bg-button-rounded-2:hover {
+} */
+/* .bg-button-rounded-2:hover {
   background: #1190cc;
   color: #fff;
-}
+} */
 
 .bg-button-green {
   background-color: #376a4d;
@@ -72,7 +72,29 @@ body {
   transition: 0.4s ease;
 }
 
+.btn-redirect-blue {
+  border: 2px solid #1190cc;
+  border-radius: 30px;
+  color: #1190cc;
+  font-weight: bold;
+  transition: 0.4s ease;
+}
+.btn-redirect-blue:hover {
+  background: #fff;
+}
+.btn-redirect {
+  border: 2px solid #fff;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.4s ease;
+}
+.btn-redirect:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
 .bg-button:hover,
+.btn-redirect-blue:hover,
+.btn-redirect:hover,
 .bg-button-rounded-2:hover,
 .bg-button-rounded:hover,
 .bg-button-green:hover {
@@ -255,13 +277,6 @@ footer .leafs-footer-img2 {
   color: #1190cc;
 }
 
-.btn-kembali {
-  border: 2px solid #fff;
-  border-radius: 30px;
-}
-.btn-kembali:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
 /* Tooltip ? */
 .v-application--wrap {
   min-height: 3vh !important;

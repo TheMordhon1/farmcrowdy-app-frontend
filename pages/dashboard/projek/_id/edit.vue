@@ -6,7 +6,7 @@
       </div>
     </section>
 
-    <section class="container px-5 md:px-0 mx-auto pt-8">
+    <section class="container px-5 md:px-0 mx-auto pt-8 lg:mt-10 mt-5">
       <div class="w-full mr-6">
         <h2 class="text-2xl lg:text-4xl text-gray-900 mb-2 font-medium">
           Dashboard
@@ -136,7 +136,9 @@
                     v-model.number="campaign.data.goal_amount"
                     readonly
                   />
-                  <small>*silahkan hubungi admin jika ingin mengubahnya</small>
+                  <small class="text-gray-400"
+                    >*silahkan hubungi admin jika ingin mengubahnya</small
+                  >
                 </div>
 
                 <div class="w-full mb-4 px-3">
@@ -240,7 +242,9 @@
                     v-model.number="campaign.data.min_pembayaran"
                     readonly
                   />
-                  <small>*silahkan hubungi admin jika ingin mengubahnya</small>
+                  <small class="text-gray-400"
+                    >*silahkan hubungi admin jika ingin mengubahnya</small
+                  >
                 </div>
 
                 <div class="w-full mb-4 px-3 mb-3">
@@ -274,7 +278,9 @@
                     v-model="campaign.data.perks"
                     readonly
                   />
-                  <small>*silahkan hubungi admin jika ingin mengubahnya</small>
+                  <small class="text-gray-400"
+                    >*silahkan hubungi admin jika ingin mengubahnya</small
+                  >
                 </div>
 
                 <div class="w-full mb-4 px-3 mb-3">
@@ -464,8 +470,8 @@ export default {
 </script>
 <style lang="scss">
 /* form */
-input:focus,
-textarea:focus {
-  background-color: yellow !important;
-}
+// input:focus,
+// textarea:focus {
+//   background-color: yellow !important;
+// }
 </style>

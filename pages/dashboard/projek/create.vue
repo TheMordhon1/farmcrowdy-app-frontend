@@ -6,7 +6,7 @@
       </div>
     </section>
 
-    <section class="container px-5 md:px-0 mx-auto pt-8">
+    <section class="container px-5 md:px-0 mx-auto pt-8 lg:mt-10 mt-5">
       <div class="flex justify-between items-center">
         <div class="w-full mr-6">
           <h2 class="text-2xl lg:text-4xl text-gray-900 mb-2 font-medium">
@@ -531,8 +531,8 @@ export default {
 }
 
 /* form */
-input:focus,
-textarea:focus {
-  background-color: yellow !important;
-}
+// input:focus,
+// textarea:focus {
+//   background-color: yellow !important;
+// }
 </style>

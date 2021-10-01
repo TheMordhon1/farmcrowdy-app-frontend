@@ -10,26 +10,24 @@
         <br />
         Ke Dalam Sistem
       </p>
-      <div class="mb-4 mt-6">
-        <div class="mb-10">
-          <a
-            href="/"
-            class="
-              block
-              w-full
-              bg-button-rounded
-              text-white
-              font-semibold
-              px-6
-              py-4
-              text-lg
-              rounded-full
-              text-center
-            "
-          >
-            Mulai Jelajahi
-          </a>
-        </div>
+      <div class="mb-10 mt-6">
+        <a
+          href="/"
+          class="
+            block
+            w-full
+            bg-button-rounded
+            text-white
+            font-semibold
+            px-6
+            py-4
+            text-lg
+            rounded-full
+            text-center
+          "
+        >
+          Mulai Jelajahi
+        </a>
       </div>
     </div>
   </div>

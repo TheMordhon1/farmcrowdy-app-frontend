@@ -5,7 +5,7 @@
         <Navbar2 />
       </div>
     </section>
-    <section class="container px-5 md:px-0 mx-auto pt-8 mt-10">
+    <section class="container px-5 md:px-0 mx-auto pt-8 lg:mt-10 mt-5">
       <div class="flex justify-between items-center mb-6">
         <div class="w-full lg:w-3/4">
           <h2 class="text-2xl lg:text-4xl text-gray-900 mb-8 font-medium">
@@ -85,18 +85,18 @@
                 }}
                 <br />
                 <div>
-                    <div  v-if="transaction.status == 'pending'" class="flex">
+                    <div  v-if="transaction.status == 'pending'" class="flex lg:flex-row flex-col">
                       <span class="text-orange-button capitalize w-3/4"> {{ transaction.status }} </span>
                       <a target="_blank" :href="transaction.payment_url" class="
-                        bg-orange-button
+                        bg-button
                         hover:bg-green-button
                         text-white
                         font-bold
                         py-4
                         px-4
                         rounded
-                        inline-flex
-                        items-center
+                        text-center
+                        mt-2 lg:mt-0
                        ">Lanjutkan Pembayaran</a>
                     </div>
                     <div  v-else="transaction.status == 'paid'">

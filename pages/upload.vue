@@ -66,7 +66,7 @@
             class="
               block
               w-full
-              btn-kembali
+              btn-redirect
               text-white
               font-light
               px-6

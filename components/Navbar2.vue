@@ -4,13 +4,14 @@
       class="px-5 flex items-center justify-between flex-wrap bg-nav p-2 fixed"
     >
       <div class="flex items-center flex-no-shrink text-white mr-6">
-        <v-avatar class="mr-4">
-          <img src="/logo@2x.png" alt="logo" class="h-30" />
-        </v-avatar>
+        <nuxt-link to="/">
+          <v-avatar class="mr-4">
+            <img src="/logo@2x.png" alt="logo" class="h-30" /> </v-avatar
+        ></nuxt-link>
       </div>
-      <div class="block sm:hidden">
+      <div class="block sm:hidden" v-if="!this.$store.state.auth.loggedIn">
         <button
-          @click="toggle"
+          @click="toggle2"
           class="
             flex
             items-center
@@ -31,6 +32,35 @@
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
           </svg>
         </button>
+      </div>
+      <div
+        @click="toggle2"
+        v-else
+        class="block sm:hidden flex justify-center items-center"
+      >
+        <v-avatar color="orange" size="55" class="mr-4">
+          <img
+            v-if="$store.state.auth.user.image_url"
+            :src="
+              $axios.defaults.baseURL + '/' + $store.state.auth.user.image_url
+            "
+            class="border-solid border-1 border-blue-500 p-1"
+          />
+        </v-avatar>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
       </div>
       <div
         :class="open ? 'block' : 'hidden'"
@@ -58,6 +88,7 @@
           <li>
             <nuxt-link class="text-nav link-nav text-lg" to="/">Home</nuxt-link>
           </li>
+
           <li>
             <nuxt-link class="text-nav link-nav text-lg" to="/#proyek"
               >Proyek</nuxt-link
@@ -104,11 +135,10 @@
               class="
                 inline-block
                 bg-button-rounded
-                hover:bg-white hover:bg-opacity-25
+                hover:bg-opacity-25
                 font-light
                 w-40
                 text-center text-white
-                hover:color-blue
                 px-6
                 py-1
                 text-lg
@@ -122,6 +152,7 @@
         <div class="ml-auto mr-5" v-else>
           <div class="dropdown inline-block relative z-10">
             <button
+              @click="toggle"
               class="
                 bg-white
                 text-gray-700
@@ -141,11 +172,11 @@
                     '/' +
                     $store.state.auth.user.image_url
                   "
-                  alt=""
+                  class="border-solid border-2 border-blue-500 p-1"
                 />
               </v-avatar>
               <span class="mr-1 capitalize">
-                {{ this.$store.state.auth.user.name }}
+                Hello, {{ this.$store.state.auth.user.name }}
               </span>
 
               <svg
@@ -159,10 +190,10 @@
               </svg>
             </button>
             <ul
+              :class="dropdown ? 'block' : 'hidden'"
               class="
                 dropdown-menu
                 absolute
-                hidden
                 text-gray-700
                 pt-1
                 shadow
@@ -225,10 +256,6 @@
 </template>
 
 <style scoped>
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
 .bg-nav {
   background: #fff;
   width: 100%;
@@ -269,6 +296,7 @@ export default {
   data() {
     return {
       open: false,
+      dropdown: false,
     };
   },
   methods: {
@@ -276,6 +304,9 @@ export default {
       await this.$auth.logout();
     },
     toggle() {
+      this.dropdown = !this.dropdown;
+    },
+    toggle2() {
       this.open = !this.open;
     },
   },
