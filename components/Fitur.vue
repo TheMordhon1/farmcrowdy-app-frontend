@@ -32,7 +32,7 @@
           />
         </figure>
         <div class="step-content">
-          <h3 class="font-medium">Daftar</h3>
+          <h3 class="font-bold font-medium mb-2">Daftar</h3>
           <p class="font-light">
             Buat akun dan mulai
             <br />gunakan fitur
@@ -48,7 +48,7 @@
           />
         </figure>
         <div class="step-content">
-          <h3 class="font-medium">Buka dan Danai Proyek</h3>
+          <h3 class="font-bold font-medium mb-2">Buka dan Danai Proyek</h3>
           <p class="font-light">
             Tentukan projek pertanian
             <br />
@@ -65,7 +65,7 @@
           />
         </figure>
         <div class="step-content">
-          <h3 class="font-medium">Execute</h3>
+          <h3 class="font-bold font-medium mb-2">Execute</h3>
           <p class="font-light">
             Waktunya untuk mewujudkan <br />
             mimpi mereka
