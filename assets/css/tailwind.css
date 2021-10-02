@@ -120,7 +120,13 @@ body {
   background-image: url("/bg-header.png");
   background-position: top right;
   background-repeat: no-repeat;
-  height: 350px;
+  height: 380px;
+}
+
+@media (max-width: 600px) {
+  .project-header {
+    height: 280px;
+  }
 }
 
 .dashboard-header {
@@ -292,6 +298,7 @@ footer .leafs-footer-img2 {
 /* Image Proyek */
 .img-proyek {
   height: 250px !important;
+  width: 100% !important;
 }
 
 /* Singup & SignIN */

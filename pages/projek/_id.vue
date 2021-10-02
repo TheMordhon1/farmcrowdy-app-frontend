@@ -13,7 +13,17 @@
               <img
                 :src="default_image"
                 alt=""
-                class="rounded-10 lg:rounded-20 w-full lg:h-66 h-full"
+                class="
+                  rounded-10
+                  lg:rounded-20
+                  w-full
+                  lg:h-66 lg:h-full
+                  absolute
+                  lg:relative
+                  top-0
+                  left-0
+                  h-100
+                "
               />
             </figure>
           </div>
@@ -30,6 +40,8 @@
                 border border-gray-400
                 rounded-10
                 lg:rounded-20
+                hidden
+                lg:block
               "
             >
               <figure class="item-thumbnail cursor-pointer">
@@ -283,10 +295,10 @@
       </div>
     </section>
     <template>
-      <div class="container px-5 md:px-0 mx-auto pt-8">
+      <div class="container px-5 md:px-0 mx-auto pt-8 mt-40 lg:mt-0">
         <div class="flex justify-between items-center">
           <div class="w-full md:w-3/4 lg:mr-6">
-            <h2 class="text-2xl lg:text-4xl text-gray-900 mb-1 font-medium">
+            <h2 class="text-xl lg:text-4xl text-gray-900 mb-1 font-medium">
               {{ campaign.data.name }}
             </h2>
             <p class="text-md text-gray-300 mb-2 font-medium">
@@ -528,6 +540,7 @@
                           ease-in-out
                           focus:outline-none focus:shadow-outline
                         "
+                        pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
                         type="number"
                         placeholder="Jumlah Dalam Rp"
                         v-model.number="transactions.amount"
@@ -539,7 +552,7 @@
                           mt-3
                           block
                           w-full
-                          bg-button
+                          bg-button-rounded
                           text-white
                           font-medium
                           px-6
@@ -559,7 +572,7 @@
                           button-cta
                           block
                           w-full
-                          bg-button
+                          bg-button-rounded
                           text-white
                           font-medium
                           px-6
@@ -598,7 +611,7 @@
                           button-cta
                           block
                           w-full
-                          bg-button
+                          bg-button-rounded
                           hover:bg-green-button
                           text-white
                           font-medium
@@ -640,27 +653,31 @@
               </div>
             </div>
             <!-- Mobile -->
-            <span class="capitalize font-semibold text-2xl mb-3"
+            <span class="capitalize font-semibold text-xl lg:text-2xl mb-3"
               >tentang komoditas</span
             >
-            <p class="font-light text-md mt-5 lg:text-xl mb-5 mb-10">
+            <p class="font-light text-md mt-2 lg:mt-5 lg:text-xl lg:mb-5 mb-10">
               {{ campaign.data.description_komoditas }}
             </p>
 
-            <span class="capitalize font-semibold text-2xl mb-3">Prospek</span>
-            <p class="font-light text-md mt-5 lg:text-xl mb-5 mb-10">
+            <span class="capitalize font-semibold text-xl lg:text-2xl mb-3"
+              >Prospek</span
+            >
+            <p class="font-light text-md mt-2 lg:mt-5 lg:text-xl lg:mb-5 mb-10">
               {{ campaign.data.description_prospek }}
             </p>
 
-            <span class="capitalize font-semibold text-2xl mb-3">Risiko</span>
-            <p class="font-light text-md mt-5 lg:text-xl mb-5 mb-10">
+            <span class="capitalize font-semibold text-xl lg:text-2xl mb-3"
+              >Risiko</span
+            >
+            <p class="font-light text-md mt-2 lg:mt-5 lg:text-xl lg:mb-5 mb-10">
               {{ campaign.data.description_risiko }}
             </p>
 
-            <span class="capitalize font-semibold text-2xl mb-3"
+            <span class="capitalize font-semibold text-xl lg:text-2xl mb-3"
               >kelompok tani</span
             >
-            <p class="font-light text-md mt-5 lg:text-xl mb-5 mb-10">
+            <p class="font-light text-md mt-2 lg:mt-5 lg:text-xl lg:mb-5 mb-10">
               {{ campaign.data.description_kelompok_tani }}
             </p>
           </div>

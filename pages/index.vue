@@ -34,7 +34,7 @@
               <img
                 :src="$axios.defaults.baseURL + '/' + campaign.image_url"
                 alt=""
-                class="img-proyek"
+                class="img-proyek w-full"
               />
             </figure>
             <div class="item-meta">
@@ -247,8 +247,7 @@
             button-cta
             block
             w-full
-            bg-button
-            text-white
+            btn-redirect-blue
             font-semibold
             px-6
             py-2

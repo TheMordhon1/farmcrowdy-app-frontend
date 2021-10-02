@@ -259,12 +259,18 @@
 .bg-nav {
   background: #fff;
   width: 100%;
-  top: 0;
+  top: -4px;
   left: 0;
   height: 64px;
   z-index: 10000;
   box-shadow: rgb(0 0 0 / 7%) 0px 4px 6px -1px;
   transition: transform 280ms ease 0s;
+}
+
+@media (min-width: 600px) {
+  .bg-nav {
+    top: 0;
+  }
 }
 
 .text-nav {
@@ -283,7 +289,7 @@
 @media (max-width: 600px) {
   .nav-mobile {
     position: absolute;
-    top: 64px;
+    top: 60px;
     left: 0;
     box-shadow: rgb(0 0 0 / 20%) 0px 4px 6px -1px;
     transition: transform 280ms ease 0s;
